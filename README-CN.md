@@ -16,5 +16,9 @@
 * 在 steamauth/SteamConfig.php 和 util/StatJsonParser 填入你的 SteamAPI Key 。你可以在 (这里)[https://steamcommunity.com/dev] 获取。
 * 如果使用 renders/ 下的内容出图，则需要 (ImageMagick)[https://www.php.net/manual/en/book.imagick.php]。
 
+全球统计的入口是 global.php
+
+个人统计的入口是 player.php
+
 ## License
 沿用旧项目的 (GNU Affero General Public License v3.0)[https://www.gnu.org/licenses/agpl-3.0.en.html]
