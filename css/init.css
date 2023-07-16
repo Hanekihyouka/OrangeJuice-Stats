@@ -1,0 +1,105 @@
+body{
+    margin:0px;
+    padding:0px;
+    font-family:sans-serif;
+    /*设置字体为sans-serif*/
+    background-image: url("../images/background.png");
+    background-repeat: repeat;
+}
+.init-content{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: rgba(0,0,0,.6);
+}
+
+.init-box{
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform:translate(-50%,-30%);
+    width:100%;
+    padding: 50px 20px;
+    background: rgba(0,0,0,.95);
+    box-sizing:border-box;
+    box-shadow: 0px 15px 25px rgba(0,0,0,.5);
+    border-radius:15px;
+}
+/** 仅限pc 大于1000时 **/
+@media (min-width : 750px) {
+    .init-box{
+        position:absolute;
+        top:30%;
+        left:50%;
+        transform:translate(-50%,-30%);
+        width:450px;
+        padding:50px;
+        background: rgba(0,0,0,.8);
+        box-sizing:border-box;
+        box-shadow: 0px 15px 25px rgba(0,0,0,.5);
+        border-radius:15px;
+    }
+}
+
+.init-box h2{
+    margin:0 0 30px;
+    padding:0;
+    color: #fff;
+    text-align:center;
+    /*文字居中*/
+}
+.init-box .init-inputbox{
+    position:relative;
+}
+.init-box .init-inputbox input{
+    width: 100%;
+    padding:10px 0;
+    font-size:16px;
+    color:#fff;
+    letter-spacing: 1px;
+    /*字符间的间距1px*/
+    margin-bottom: 30px;
+    border:none;
+    border-bottom: 1px solid #fff;
+    outline:none;
+    /*outline用于绘制元素周围的线
+    outline：none在这里用途是将输入框的边框的线条使其消失*/
+    background: transparent;
+    /*背景颜色为透明*/
+}
+.init-box .init-inputbox label{
+    /*<label> 标签为 input 元素定义标注（标记）*/
+    position:absolute;
+    top:0px;
+    left:0px;
+    padding:10px 0;
+    font-size: 16px;
+    color:#fff;
+    pointer-events:none;
+    /*鼠标事件消失，比如说选中文字，光标定位，超链接下划线*/
+    transition:.5s;
+    /*过渡时间5s*/
+}
+.init-box .init-inputbox input:focus ~ label,
+.init-box .init-inputbox input:valid ~ label
+{
+    top:-18px;
+    left:0;
+    color:#03a9f4;
+    font-size:14px;
+}
+.init-box input[type="submit"]
+{
+    background: transparent;
+    border:none;
+    outline:none;
+    font-size: 16px;
+    color:#fff;
+    background: #03a9f4;
+    padding:15px 20px;
+    cursor: pointer;
+    /*光标呈现为指示链接的指针（一只手）*/
+    border-radius:10px;
+}

@@ -1,0 +1,97 @@
+html, body
+{
+    background-image: url("../images/background.png");
+    background-repeat: repeat;
+    background-color: #ffdebc;
+    height:100%;
+}
+
+
+main{
+    overflow:auto;
+    /*padding-top: 50px;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+td{
+    padding: 0 !important;
+    vertical-align: middle !important;
+}
+
+.intable-text{
+    text-align: center ;
+    vertical-align: middle ;
+    display: block ;
+}
+
+.intable-img{
+    width: 32px;
+}
+
+.box
+{
+    background-color: white;
+    border-radius: 0px;
+    padding: 0;
+    width: 100%;
+}
+
+.table-player-info tr{
+    height: 48px;
+    margin: 0 auto;
+}
+
+/** 小于700时 **/
+@media (max-width : 700px) {
+    .show-700{
+        display: none;
+    }
+}
+/** 大于700时 **/
+@media (min-width : 700px) {
+    .intable-img {
+        width: 48px;
+    }
+    .hidden-700{
+        display: none;
+    }
+}
+/** 大于1000时 **/
+@media (min-width : 1000px) {
+    .intable-img{
+        width: 56px;
+    }
+
+    .box {
+        background-color: white;
+        border-radius: 25px;
+        padding: 20px;
+        width: 75%;
+    }
+
+    .table-player-info tr{
+        height: 56px;
+        margin: 0 auto;
+    }
+
+    .table-player-info td{
+        width: 20% ;
+        margin: 0 auto;
+    }
+}
+/** 仅限pc 大于1600时 **/
+@media only screen and (min-width : 1600px) {
+    .table-player-info{
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    .table-player-info tr{
+        height: 64px;
+        margin: 0 auto;
+    }
+}
+
