@@ -13,7 +13,7 @@ Haneki reorganises and expands it to global stats in early 2021, deploying it to
 # Setup
 
 * Based on PHP 7.0
-* You need a proper SteamAPI Key to make this work. You can get one on the [Steam's Web API website](https://steamcommunity.com/dev). The API keys goes in steamauth/SteamConfig.php and util/StatJsonParser.
+* You need a proper SteamAPI Key to make this work. You can get one on the [Steam's Web API website](https://steamcommunity.com/dev). The API keys goes in steamauth/SteamConfig.php and util/StatJsonParser.php
 * If you use the content under renders/ to make images, you will need [ImageMagick](https://www.php.net/manual/en/book.imagick.php).
 
 # Instance

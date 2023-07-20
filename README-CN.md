@@ -13,7 +13,7 @@
 # 部署
 
 * 基于 PHP 7.0
-* 在 steamauth/SteamConfig.php 和 util/StatJsonParser 填入你的 SteamAPI Key 。你可以在 [这里](https://steamcommunity.com/dev) 获取。
+* 在 steamauth/SteamConfig.php 和 util/StatJsonParser.php 填入你的 SteamAPI Key 。你可以在 [这里](https://steamcommunity.com/dev) 获取。
 * 如果使用 renders/ 下的内容出图，则需要 [ImageMagick](https://www.php.net/manual/en/book.imagick.php)。
 
 # 实例

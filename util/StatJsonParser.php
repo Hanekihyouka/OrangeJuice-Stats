@@ -1,6 +1,5 @@
 <?php
 require_once ("dictionary.php");
-require_once ("ProxyBg.php");
 
 function requestJsonPlayer($steam64id){
     return file_get_contents(getUrlHeaderPlayer().getSteamWebKey()."&steamid=".$steam64id)?:false;
