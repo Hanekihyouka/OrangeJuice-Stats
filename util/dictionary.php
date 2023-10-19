@@ -170,7 +170,11 @@ $dictionary_stats = [
     "STAT_OJ49_C02"=>["displayName"=>"KrilaP","statGroup"=>"chara_games"],
     "STAT_OJ49_C13"=>["displayName"=>"MimyuuJ","statGroup"=>"chara_wins"],
     "STAT_OJ49_C12"=>["displayName"=>"MimyuuJ","statGroup"=>"chara_games"],
-
+    "STAT_OJ50_C02"=>["displayName"=>"PoppoMama","statGroup"=>"chara_games"],
+    "STAT_OJ50_C03"=>["displayName"=>"PoppoMama","statGroup"=>"chara_wins"],
+    "STAT_OJ50_C12"=>["displayName"=>"LuluDark","statGroup"=>"chara_games"],
+    "STAT_OJ50_C13"=>["displayName"=>"LuluDark","statGroup"=>"chara_wins"],
+    
     //卡牌
     "STAT_CARD_DASH_CHOSEN"=>["displayName"=>"CARD_BOOST_DASH","statGroup"=>"card"],
     "STAT_CARD_SAKISCOOKIE_CHOSEN"=>["displayName"=>"CARD_BOOST_COOKIE","statGroup"=>"card"],
@@ -316,7 +320,9 @@ $dictionary_games = [
     "STAT_OJ47_C22",
     "STAT_OJ48_C02",
     "STAT_OJ49_C02",
-    "STAT_OJ49_C12"
+    "STAT_OJ49_C12",
+    "STAT_OJ50_C02",
+    "STAT_OJ50_C12"
 ];
 
 $dictionary_wins = [
@@ -403,7 +409,9 @@ $dictionary_wins = [
     "STAT_OJ47_C23",
     "STAT_OJ48_C03",
     "STAT_OJ49_C03",
-    "STAT_OJ49_C13"
+    "STAT_OJ49_C13",
+    "STAT_OJ50_C03",
+    "STAT_OJ50_C13"
 ];
 
 $dictionary_schematic = [
@@ -891,7 +899,13 @@ $dictionary_schematic = [
     "STAT_OJ49_C03"=>["descr"=>"线上胜场 KrilaP"],
     "STAT_OJ49_C11"=>["descr"=>"总场数 MimyuuJ"],
     "STAT_OJ49_C12"=>["descr"=>"线上总场数 MimyuuJ"],
-    "STAT_OJ49_C13"=>["descr"=>"线上胜场 MimyuuJ"]
+    "STAT_OJ49_C13"=>["descr"=>"线上胜场 MimyuuJ"],
+    "STAT_OJ50_C01"=>["descr"=>"总场数 PoppoMama"],
+    "STAT_OJ50_C02"=>["descr"=>"线上总场数 PoppoMama"],
+    "STAT_OJ50_C03"=>["descr"=>"线上胜场 PoppoMama"],
+    "STAT_OJ50_C11"=>["descr"=>"总场数 LuluDark"],
+    "STAT_OJ50_C12"=>["descr"=>"线上总场数 LuluDark"],
+    "STAT_OJ50_C13"=>["descr"=>"线上胜场 LuluDark"]
 ];
 
 $dictionary_res = [
@@ -980,6 +994,8 @@ $dictionary_res = [
     "MioF" => ["face" => "miof"],
     "KrilaP" => ["face" => "krilap"],
     "MimyuuJ" => ["face" => "mimyuuj"],
+    "PoppoMama" => ["face" => "poppomama"],
+    "LuluDark" => ["face" => "luludark"],
 ];
 
 function getDisplayName($stat_name){
