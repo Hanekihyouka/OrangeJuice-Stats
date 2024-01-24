@@ -1010,6 +1010,8 @@ $dictionary_res = [
     "MimyuuJ" => ["face" => "mimyuuj"],
     "PoppoMama" => ["face" => "poppomama"],
     "LuluDark" => ["face" => "luludark"],
+    "EllieHyper" => ["face" => "elleihyper"],
+    "KaiHero" => ["face" => "kaihero"],
 ];
 
 function getDisplayName($stat_name){
