@@ -174,6 +174,10 @@ $dictionary_stats = [
     "STAT_OJ50_C03"=>["displayName"=>"PoppoMama","statGroup"=>"chara_wins"],
     "STAT_OJ50_C12"=>["displayName"=>"LuluDark","statGroup"=>"chara_games"],
     "STAT_OJ50_C13"=>["displayName"=>"LuluDark","statGroup"=>"chara_wins"],
+    "STAT_OJ51_C02"=>["displayName"=>"EllieHyper","statGroup"=>"chara_games"],
+    "STAT_OJ51_C03"=>["displayName"=>"EllieHyper","statGroup"=>"chara_wins"],
+    "STAT_OJ51_C12"=>["displayName"=>"KaiHero","statGroup"=>"chara_games"],
+    "STAT_OJ51_C13"=>["displayName"=>"KaiHero","statGroup"=>"chara_wins"],
     
     //卡牌
     "STAT_CARD_DASH_CHOSEN"=>["displayName"=>"CARD_BOOST_DASH","statGroup"=>"card"],
@@ -322,7 +326,9 @@ $dictionary_games = [
     "STAT_OJ49_C02",
     "STAT_OJ49_C12",
     "STAT_OJ50_C02",
-    "STAT_OJ50_C12"
+    "STAT_OJ50_C12",
+    "STAT_OJ51_C02",
+    "STAT_OJ51_C12"
 ];
 
 $dictionary_wins = [
@@ -411,7 +417,9 @@ $dictionary_wins = [
     "STAT_OJ49_C03",
     "STAT_OJ49_C13",
     "STAT_OJ50_C03",
-    "STAT_OJ50_C13"
+    "STAT_OJ50_C13",
+    "STAT_OJ51_C03",
+    "STAT_OJ51_C13"
 ];
 
 $dictionary_schematic = [
@@ -905,7 +913,13 @@ $dictionary_schematic = [
     "STAT_OJ50_C03"=>["descr"=>"线上胜场 PoppoMama"],
     "STAT_OJ50_C11"=>["descr"=>"总场数 LuluDark"],
     "STAT_OJ50_C12"=>["descr"=>"线上总场数 LuluDark"],
-    "STAT_OJ50_C13"=>["descr"=>"线上胜场 LuluDark"]
+    "STAT_OJ50_C13"=>["descr"=>"线上胜场 LuluDark"],
+    "STAT_OJ51_C01"=>["descr"=>"总场数 KaiHero"],
+    "STAT_OJ51_C02"=>["descr"=>"线上总场数 KaiHero"],
+    "STAT_OJ51_C03"=>["descr"=>"线上胜场 KaiHero"],
+    "STAT_OJ51_C11"=>["descr"=>"总场数 EllieHyper"],
+    "STAT_OJ51_C12"=>["descr"=>"线上总场数 EllieHyper"],
+    "STAT_OJ51_C13"=>["descr"=>"线上胜场 EllieHyper"]
 ];
 
 $dictionary_res = [
