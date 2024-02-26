@@ -914,12 +914,12 @@ $dictionary_schematic = [
     "STAT_OJ50_C11"=>["descr"=>"总场数 LuluDark"],
     "STAT_OJ50_C12"=>["descr"=>"线上总场数 LuluDark"],
     "STAT_OJ50_C13"=>["descr"=>"线上胜场 LuluDark"],
-    "STAT_OJ51_C01"=>["descr"=>"总场数 KaiHero"],
-    "STAT_OJ51_C02"=>["descr"=>"线上总场数 KaiHero"],
-    "STAT_OJ51_C03"=>["descr"=>"线上胜场 KaiHero"],
-    "STAT_OJ51_C11"=>["descr"=>"总场数 EllieHyper"],
-    "STAT_OJ51_C12"=>["descr"=>"线上总场数 EllieHyper"],
-    "STAT_OJ51_C13"=>["descr"=>"线上胜场 EllieHyper"]
+    "STAT_OJ51_C01"=>["descr"=>"总场数 EllieHyper"],
+    "STAT_OJ51_C02"=>["descr"=>"线上总场数 EllieHyper"],
+    "STAT_OJ51_C03"=>["descr"=>"线上胜场 EllieHyper"],
+    "STAT_OJ51_C11"=>["descr"=>"总场数 KaiHero"],
+    "STAT_OJ51_C12"=>["descr"=>"线上总场数 KaiHero"],
+    "STAT_OJ51_C13"=>["descr"=>"线上胜场 KaiHero"]
 ];
 
 $dictionary_res = [
