@@ -85,9 +85,22 @@ function build($contentObject,$profileObejct){
             $draw->setTextAlignment(1);
             if($i==0){
                 // draw hyper
-                $im_hyper = new Imagick("./images/cards/cards/".getHyperIconName(key($contentObject[0]))."256.png");
+                $hyper_icon = getHyperIconName(key($contentObject[0]));
+                if(isset($_GET["hyper_icon"])){
+                    $hyper_icon = $_GET["hyper_icon"];
+                }
+                $im_hyper = new Imagick("./images/cards/cards/".$hyper_icon."256.png");
                 # cut
-                $im_hyper -> cropImage(237,76,19,30);
+                //$im_hyper -> cropImage(237,76,19,30);
+                $render7_offset_y = getHyperIconAnchorY(key($contentObject[0]));
+                if(isset($_GET["y_offset"])){
+                        $render7_offset_y = $_GET["y_offset"];
+                }
+                if($render7_offset_y<0){
+                    $render7_offset_y=-$render7_offset_y;
+                    $im_hyper -> flopImage();
+                }
+                $im_hyper -> cropImage(237,76,19,$render7_offset_y);
                 $im_hyper->roundCorners(18, 18);
                 $im->compositeImage($im_hyper, $im_hyper->getImageCompose(), 111,329);
                 //draw most uesed chara again
