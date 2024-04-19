@@ -96,6 +96,10 @@ function build($contentObject,$profileObejct){
                 if(isset($_GET["y_offset"])){
                         $render7_offset_y = $_GET["y_offset"];
                 }
+                if($render7_offset_y<0){
+                    $render7_offset_y=-$render7_offset_y;
+                    $im_hyper -> flopImage();
+                }
                 $im_hyper -> cropImage(237,76,19,$render7_offset_y);
                 $im_hyper->roundCorners(18, 18);
                 $im->compositeImage($im_hyper, $im_hyper->getImageCompose(), 111,329);
