@@ -87,7 +87,9 @@ function build($contentObject,$profileObejct){
                 // draw hyper
                 $im_hyper = new Imagick("./images/cards/cards/".getHyperIconName(key($contentObject[0]))."256.png");
                 # cut
-                $im_hyper -> cropImage(237,76,19,30);
+                //$im_hyper -> cropImage(237,getHyperIconAnchorY(key($contentObject[0]),19,30);
+                //$im_hyper -> cropImage(237,76,19,30);
+                $im_hyper -> cropImage(237,76,19,getHyperIconAnchorY(key($contentObject[0])));
                 $im_hyper->roundCorners(18, 18);
                 $im->compositeImage($im_hyper, $im_hyper->getImageCompose(), 111,329);
                 //draw most uesed chara again
