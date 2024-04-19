@@ -926,7 +926,7 @@ $dictionary_res = [
     "null" => ["face" => null,"hyper_icon" => null,"render7_offset_y"=> 30],
     "QP" => ["face" => "qp","hyper_icon" => "hypmode","render7_offset_y"=> 35],
     "Yuki" => ["face" => "yuki","hyper_icon" => "gamble","render7_offset_y"=> -30],
-    "Aru" => ["face" => "aru","hyper_icon" => "present","render7_offset_y"=> 95,
+    "Aru" => ["face" => "aru","hyper_icon" => "present","render7_offset_y"=> 95],
     "Suguri" => ["face" => "suguri","hyper_icon" => "accel","render7_offset_y"=> 30],
     "Hime" => ["face" => "hime","hyper_icon" => "sokubaku","render7_offset_y"=> 30],
     "Sora" => ["face" => "sora","hyper_icon" => "detarame","render7_offset_y"=> -20],
