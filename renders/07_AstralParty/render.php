@@ -49,7 +49,12 @@ function build($contentObject,$profileObejct){
     $draw->setFillColor(new ImagickPixel('#666'));
     $draw->setFontSize(12);
     $draw->annotation(35, 423, date("Y-m-d"));
-    $draw->annotation(185, 423, $_GET["steamid"]);
+    //wtf
+    $draw->setFont("./renders/07_AstralParty/images/SgaSmoothRegular-DO0Y3.ttf");
+    $uidstr = convertToBase26(substr($_GET["steamid"],0,8));
+    $uidstr .= convertToBase26(substr($_GET["steamid"],8));
+    $draw->annotation(185, 423,"gloafmddfinmd");
+    //reset font
     // Level && Online  Games  Win && xp++/level
     $draw->setFont("./renders/07_AstralParty/images/Clash_Regular_Final.ttf");
     $draw->setFillColor(new ImagickPixel('#000'));
@@ -221,5 +226,22 @@ function build($contentObject,$profileObejct){
 
 // render
     echo $im->getImageBlob();
+}
+
+function convertToBase26($number) {
+    $input_string = base_convert($number,10,26);
+    for ($i = 0; $i < strlen($input_string); $i++) {
+        $char = $input_string[$i];
+        $ascii = ord($char);
+        if ($ascii <= 57) {
+            $new_char = chr($ascii + 49);
+        } elseif ($ascii >= 97) {
+            $new_char = chr($ascii + 10);
+        } else {
+            $new_char = $char;
+        }
+        $result .= $new_char;
+    }
+    return $result;
 }
 
