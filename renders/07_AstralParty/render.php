@@ -53,7 +53,7 @@ function build($contentObject,$profileObejct){
     $draw->setFont("./renders/07_AstralParty/images/SgaSmoothRegular-DO0Y3.ttf");
     $uidstr = convertToBase26(substr($_GET["steamid"],0,8));
     $uidstr .= convertToBase26(substr($_GET["steamid"],8));
-    $draw->annotation(185, 423,"gloafmddfinmd");
+    $draw->annotation(185, 423,$uidstr);
     //reset font
     // Level && Online  Games  Win && xp++/level
     $draw->setFont("./renders/07_AstralParty/images/Clash_Regular_Final.ttf");
