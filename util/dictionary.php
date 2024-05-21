@@ -178,6 +178,10 @@ $dictionary_stats = [
     "STAT_OJ51_C03"=>["displayName"=>"EllieHyper","statGroup"=>"chara_wins"],
     "STAT_OJ51_C12"=>["displayName"=>"KaiHero","statGroup"=>"chara_games"],
     "STAT_OJ51_C13"=>["displayName"=>"KaiHero","statGroup"=>"chara_wins"],
+    "STAT_OJ53_C02"=>["displayName"=>"Bourbon","statGroup"=>"chara_games"],
+    "STAT_OJ53_C03"=>["displayName"=>"Bourbon","statGroup"=>"chara_wins"],
+    "STAT_OJ53_C12"=>["displayName"=>"Grain","statGroup"=>"chara_games"],
+    "STAT_OJ53_C13"=>["displayName"=>"Grain","statGroup"=>"chara_wins"],
     
     //卡牌
     "STAT_CARD_DASH_CHOSEN"=>["displayName"=>"CARD_BOOST_DASH","statGroup"=>"card"],
@@ -328,7 +332,9 @@ $dictionary_games = [
     "STAT_OJ50_C02",
     "STAT_OJ50_C12",
     "STAT_OJ51_C02",
-    "STAT_OJ51_C12"
+    "STAT_OJ51_C12",
+    "STAT_OJ53_C02",
+    "STAT_OJ53_C12"
 ];
 
 $dictionary_wins = [
@@ -419,7 +425,9 @@ $dictionary_wins = [
     "STAT_OJ50_C03",
     "STAT_OJ50_C13",
     "STAT_OJ51_C03",
-    "STAT_OJ51_C13"
+    "STAT_OJ51_C13",
+    "STAT_OJ53_C03",
+    "STAT_OJ53_C13"
 ];
 
 $dictionary_schematic = [
@@ -919,7 +927,15 @@ $dictionary_schematic = [
     "STAT_OJ51_C03"=>["descr"=>"线上胜场 EllieHyper"],
     "STAT_OJ51_C11"=>["descr"=>"总场数 KaiHero"],
     "STAT_OJ51_C12"=>["descr"=>"线上总场数 KaiHero"],
-    "STAT_OJ51_C13"=>["descr"=>"线上胜场 KaiHero"]
+    "STAT_OJ51_C13"=>["descr"=>"线上胜场 KaiHero"],
+    "STAT_EVT_19_PLAYED_21"=>["descr"=>"场数 混沌模式 21"],
+    "STAT_EVT_19_PLAYED_22"=>["descr"=>"场数 混沌模式 22"],
+    "STAT_OJ53_C01"=>["descr"=>"总场数 Bourbon"],
+    "STAT_OJ53_C02"=>["descr"=>"线上总场数 Bourbon"],
+    "STAT_OJ53_C03"=>["descr"=>"线上胜场 Bourbon"],
+    "STAT_OJ53_C11"=>["descr"=>"总场数 Grain"],
+    "STAT_OJ53_C12"=>["descr"=>"线上总场数 Grain"],
+    "STAT_OJ53_C13"=>["descr"=>"线上胜场 Grain"]
 ];
 
 $dictionary_res = [
@@ -1011,7 +1027,9 @@ $dictionary_res = [
     "PoppoMama" => ["face" => "poppomama","hyper_icon" => "mpower","render7_offset_y"=> -50],
     "LuluDark" => ["face" => "luludark","hyper_icon" => "lisunlucky","render7_offset_y"=> -20],
     "EllieHyper" => ["face" => "elleihyper","hyper_icon" => "hmiracle","render7_offset_y"=> -70],
-    "KaiHero" => ["face" => "kaihero","hyper_icon" => "moglory","render7_offset_y"=> -80]
+    "KaiHero" => ["face" => "kaihero","hyper_icon" => "moglory","render7_offset_y"=> -80],
+    "Bourbon" => ["face" => "bourbon","hyper_icon" => "resistance","render7_offset_y" => 15],
+    "Grain" => ["face" => "Grain","hyper_icon" => "gunsready","render7_offset_y" => -10]    
 ];
 
 function getDisplayName($stat_name){
