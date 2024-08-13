@@ -6,7 +6,7 @@ function build($contentObject,$profileObejct){
 //background
     $im = new Imagick("./renders/07_AstralParty/images/back.png");
     $im->roundCornersImage(4, 4);
-// pin
+// unit
 // sp1
     $sp1 = 0;
     if(isset($_GET["sp1"])){
@@ -94,7 +94,7 @@ function build($contentObject,$profileObejct){
                 if(isset($_GET["hyper_icon"])){
                     $hyper_icon = $_GET["hyper_icon"];
                 }
-                $im_hyper = new Imagick("./images/cards/cards/".$hyper_icon."256.png");
+                $im_hyper = new Imagick("./images/cards/hyper/".$hyper_icon."256.png");
                 # cut
                 //$im_hyper -> cropImage(237,76,19,30);
                 $render7_offset_y = getHyperIconAnchorY(key($contentObject[0]));
@@ -109,49 +109,49 @@ function build($contentObject,$profileObejct){
                 $im_hyper->roundCorners(18, 18);
                 $im->compositeImage($im_hyper, $im_hyper->getImageCompose(), 111,329);
                 //draw most uesed chara again
-                    $im_pin_name = getFaceName(key($contentObject[0]));
-                    $im_pin_index = "_00_03.png";
-                    $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    $im_unit_name = getFaceName(key($contentObject[0]));
+                    $im_unit_index = "_00_03.png";
+                    $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     //for safe
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_00_00.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_00_00.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_00_01.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_00_01.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
                     //for extend
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_01_00_03.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_01_00_03.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_04_00_03.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_04_00_03.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_10_00_03.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_10_00_03.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_11_00_03.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_11_00_03.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_12_00_03.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_12_00_03.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_index = "_00_00_03.png";
-                        $im_pin_file = "./renders/05_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_index = "_00_00_03.png";
+                        $im_unit_file = "./images/units/".$im_unit_name.$im_unit_index;
                     }
-                    if(!file_exists($im_pin_file)){
-                        $im_pin_file = "./renders/04_TentekiKo/images/pin/"."silhouette_00.png";
+                    if(!file_exists($im_unit_file)){
+                        $im_unit_file = "./renders/04_TentekiKo/images/unit/"."silhouette_00.png";
                     }
-                    $im_pin = new Imagick($im_pin_file);
-                    $im_pin->resizeImage(128, 128, 0.9, 1, true);
-                    $im->compositeImage($im_pin, $im_pin->getImageCompose(), 332, 310);
+                    $im_unit = new Imagick($im_unit_file);
+                    $im_unit->resizeImage(128, 128, 0.9, 1, true);
+                    $im->compositeImage($im_unit, $im_unit->getImageCompose(), 332, 310);
             }
         }else{
             $im_icon_chara = new Imagick("./renders/07_AstralParty/images/empty_slot.png");

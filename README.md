@@ -17,6 +17,17 @@ Deploying it on 100oj.com making it part of the many Orange Juice tools availabl
 2. Get your api key on [Steam](https://steamcommunity.com/dev). And set it in ``config.php``.   
 3. (optional) If you use the content under renders/ to render images, set up [imagick](https://www.php.net/manual/en/imagick.setup.php).   
 
+#### 3.1 Checkout your php version.
+Run ``php -v`` to see what version of PHP you have on the machine.   
+
+#### 3.2 Enable GD extension for PHP.
+``sudo apt-get install php<your-php-version>-gd``,   
+e.g. ``sudo apt-get install php8.1-gd``.
+
+#### 3.3 Set up imagick.
+``sudo apt-get install php<your-php-version>-imagick``,   
+e.g. ``sudo apt-get install php8.1-imagick``.
+
 # Public Instance
 
 [global.php](https://interface.100oj.com/stat/global.php) for global stats

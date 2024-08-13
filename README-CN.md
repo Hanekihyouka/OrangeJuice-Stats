@@ -17,6 +17,17 @@
 2. 在 ``config.php`` 填入你的 SteamAPI Key 。你可以在 [这里](https://steamcommunity.com/dev) 获取。   
 3. (可选) 如果你要使用 renders/ 下的内容来出图，请为 PHP 安装 [ImageMagick 拓展](https://www.php.net/manual/en/imagick.setup.php)。
 
+#### 3.1 检查 php 版本
+``php -v``
+
+#### 3.2 启用 gd
+``sudo apt-get install php<版本号>-gd``,   
+例如: ``sudo apt-get install php8.1-gd``.
+
+#### 3.3 安装 imagick
+``sudo apt-get install php<版本号>-imagick``,   
+例如: ``sudo apt-get install php8.1-imagick``.
+
 # 公共实例
 
 全球统计的入口是 [global.php](https://interface.100oj.com/stat/global.php) 。

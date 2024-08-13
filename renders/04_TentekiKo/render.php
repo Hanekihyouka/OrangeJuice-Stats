@@ -23,29 +23,29 @@ function build($contentObject,$profileObejct){
         $im_sp->resizeImage(35, 35, 0.9, 1, true);
         $im->compositeImage($im_sp, $im_sp->getImageCompose(), 412, 7);
     }
-// pin
+// face
     //排序
     arsort($contentObject[0]);
-    $im_pin_name = getFaceName(key($contentObject[0]));
-    $im_pin_index = "_00_03.png";
-    $im_pin_file = "./renders/04_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
-    if(!file_exists($im_pin_file)){
-        $im_pin_index = "_00_00.png";
-        $im_pin_file = "./renders/04_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+    $im_face_name = getFaceName(key($contentObject[0]));
+    $im_face_index = "_00_03.png";
+    $im_face_file = "./images/face/".$im_face_name.$im_face_index;
+    if(!file_exists($im_face_file)){
+        $im_face_index = "_00_00.png";
+        $im_face_file = "./images/face/".$im_face_name.$im_face_index;
     }
-    if(!file_exists($im_pin_file)){
-        $im_pin_index = "_00_01.png";
-        $im_pin_file = "./renders/04_TentekiKo/images/pin/".$im_pin_name.$im_pin_index;
+    if(!file_exists($im_face_file)){
+        $im_face_index = "_00_01.png";
+        $im_face_file = "./images/face/".$im_face_name.$im_face_index;
     }
-    if(!file_exists($im_pin_file)){
-        $im_pin_file = "./renders/04_TentekiKo/images/pin/"."silhouette_00.png";
+    if(!file_exists($im_face_file)){
+        $im_face_file = "./images/face/"."silhouette_00.png";
     }
-    $im_pin = new Imagick($im_pin_file);
-    $im_pin->resizeImage(46, 46, 0.9, 1, true);
+    $im_face = new Imagick($im_face_file);
+    $im_face->resizeImage(46, 46, 0.9, 1, true);
     if($sp1>0){
-        $im->compositeImage($im_pin, $im_pin->getImageCompose(), 360, 4);
+        $im->compositeImage($im_face, $im_face->getImageCompose(), 360, 4);
     }else{
-        $im->compositeImage($im_pin, $im_pin->getImageCompose(), 402, 4);
+        $im->compositeImage($im_face, $im_face->getImageCompose(), 402, 4);
     }
 // Text
     $text = new Imagick();
