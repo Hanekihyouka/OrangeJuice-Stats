@@ -6,17 +6,18 @@
 </p>
 
 # 100% Orange Juice Stats
-The starting point of this project was [a personal stats query project from the distant past](https://gitlab.com/gabuch2/orange-juice-stats), the old project lacked maintenance and was already struggling with its functionality.
+This project is an enhanced version of [orange-juice-stats](https://gitlab.com/gabuch2/orange-juice-stats).   
 
-Haneki reorganises and expands it to global stats in early 2021, deploying it to 100oj.com making it part of the many Orange Juice tools available.
+I build this repo in order to make it easier to look up global stats and player stats.   
+Deploying it on 100oj.com making it part of the many Orange Juice tools available, in early 2021.    
 
 # Setup
 
-* Based on PHP 7.0
-* You need a proper SteamAPI Key to make this work. You can get one on the [Steam's Web API website](https://steamcommunity.com/dev). The API keys goes in steamauth/SteamConfig.php and util/StatJsonParser.php
-* If you use the content under renders/ to make images, you will need [ImageMagick](https://www.php.net/manual/en/book.imagick.php).
+1. PHP 7.0 or higher   
+2. Get your api key on [Steam](https://steamcommunity.com/dev). And set it in ``config.php``.   
+3. (optional) If you use the content under renders/ to render images, set up [imagick](https://www.php.net/manual/en/imagick.setup.php).   
 
-# Instance
+# Public Instance
 
 [global.php](https://interface.100oj.com/stat/global.php) for global stats
 

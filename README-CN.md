@@ -6,17 +6,18 @@
 </p>
 
 # 百分百鲜橙汁 统计数据
-本项目的起点是 [一个远古时期的个人统计查询项目](https://gitlab.com/gabuch2/orange-juice-stats)，旧项目缺乏维护，已经难以满足其功能。
+本项目的起点是 [一个远古时期的个人统计查询项目](https://gitlab.com/gabuch2/orange-juice-stats)，旧项目缺乏维护，已经难以满足其功能。   
+本项目是它的增强版本。   
 
 羽希在 2021 年初将其重新整理并拓展到全球统计，部署到 100oj.com 使其成为众多橙汁工具的一部分。
 
 # 部署
 
-* 基于 PHP 7.0
-* 在 steamauth/SteamConfig.php 和 util/StatJsonParser.php 填入你的 SteamAPI Key 。你可以在 [这里](https://steamcommunity.com/dev) 获取。
-* 如果使用 renders/ 下的内容出图，则需要 [ImageMagick](https://www.php.net/manual/en/book.imagick.php)。
+1. PHP 7.0 或更高版本。   
+2. 在 ``config.php`` 填入你的 SteamAPI Key 。你可以在 [这里](https://steamcommunity.com/dev) 获取。   
+3. (可选) 如果你要使用 renders/ 下的内容来出图，请为 PHP 安装 [ImageMagick 拓展](https://www.php.net/manual/en/imagick.setup.php)。
 
-# 实例
+# 公共实例
 
 全球统计的入口是 [global.php](https://interface.100oj.com/stat/global.php) 。
 
