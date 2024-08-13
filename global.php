@@ -29,8 +29,8 @@ if(isset($_GET['startdate'])&&isset($_GET['enddate'])){
     <!-- Info -->
     <meta itemprop="name" content="百分百鲜橙汁橙汁 - 全球统计">
     <meta name="description" itemprop="description" content="可选择日期的，角色的全球总场数、胜场、胜率等统计信息。">
-    <meta itemprop="image" content="https://interface.100oj.com/share.png">
-    <link rel="icon" href="https://interface.100oj.com/favicon.ico">
+    <meta itemprop="image" content="./images/share.png">
+    <link rel="icon" href="./images/favicon.ico">
     <title>百分百鲜橙汁 - 全球统计</title>
     <!-- Info -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

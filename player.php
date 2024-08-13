@@ -21,8 +21,8 @@ $contentJson = json_encode($contentObject);
     <!-- Info -->
     <meta itemprop="name" content="百分百鲜橙汁橙汁 - 个人统计">
     <meta name="description" itemprop="description" content="玩家的等级、游戏场数、合作等级、角色胜场、胜率等统计信息。">
-    <meta itemprop="image" content="https://interface.100oj.com/share.png">
-    <link rel="icon" href="https://interface.100oj.com/favicon.ico">
+    <meta itemprop="image" content="./images/share.png">
+    <link rel="icon" href="./images/favicon.ico">
     <title>百分百鲜橙汁 - 个人统计</title>
     <!-- Info -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -149,7 +149,7 @@ $contentJson = json_encode($contentObject);
                 </tr>
                 <tr>
                     <td rowspan="5" class="visible-md visible-lg">
-                        <a href="https://interface.100oj.com/stat/player.php">
+                        <a href="player.php">
                             <img width="200" src="images/logo.png" >
                         </a>
                     </td>
@@ -405,7 +405,7 @@ $contentJson = json_encode($contentObject);
 
         for (let contentKey in content[1]) {
             datatable_card.row.add([
-                "<img class='intable-img' title='" + contentKey + "' alt='" + contentKey + "' src='" + "http://interface.100oj.com/interface/util/icon.php?key=" + contentKey +"'>",
+                "<img class='intable-img' title='" + contentKey + "' alt='" + contentKey + "' src='" + "./images/cards/" + contentKey + ".webp" + "'>",
                 "<div class='intable-text'>" + content[1][contentKey] + "</div>"
             ]).draw(false);
         }

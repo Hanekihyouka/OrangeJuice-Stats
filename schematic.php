@@ -18,8 +18,8 @@ $statsObject = $schemaObject["game"]["availableGameStats"]["stats"];
     <!-- Info -->
     <meta itemprop="name" content="Schematic">
     <meta name="description" itemprop="description" content="Schematic">
-    <meta itemprop="image" content="https://interface.100oj.com/share.png">
-    <link rel="icon" href="https://interface.100oj.com/favicon.ico">
+    <meta itemprop="image" content="./images/share.png">
+    <link rel="icon" href="./images/favicon.ico">
     <title>Schematic</title>
 
 </head>
@@ -105,7 +105,7 @@ $statsObject = $schemaObject["game"]["availableGameStats"]["stats"];
         //console.log(i + "\t>\t" + stats[i]["name"]);
         stat_td.onclick = (function () {
             stat_td.innerText = "请求中...";
-            let Http = new XMLHttpRequest();//
+            let Http = new XMLHttpRequest();
             let url='https://interface.100oj.com/stat/util/pipe/GetGlobalStatsForGame.php?key=' + stats[i]["name"];
             Http.open("GET", url);
             Http.onload = function (){

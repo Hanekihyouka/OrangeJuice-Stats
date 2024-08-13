@@ -1,5 +1,6 @@
 <?php
 require_once ("dictionary.php");
+require_once ("config.php");
 
 function requestJsonPlayer($steam64id){
     return file_get_contents(getUrlHeaderPlayer().getSteamWebKey()."&steamid=".$steam64id)?:false;
@@ -46,7 +47,8 @@ function requestJsonSchema(){
 }
 
 function getSteamWebKey(){
-	return ""; // Your Steam WebAPI-Key found at https://steamcommunity.com/dev/apikey
+    global $_config;
+	return $_config['apikey']; // Your Steam WebAPI-Key found at https://steamcommunity.com/dev/apikey
 }
 function getUrlHeaderPlayer(){
     return "http://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v0002/?appid=282800&key=";
