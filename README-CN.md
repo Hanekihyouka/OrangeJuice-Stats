@@ -12,6 +12,7 @@
 羽希在 2021 年初将其重新整理并拓展到全球统计，部署到 100oj.com 使其成为众多橙汁工具的一部分。
 
 # 部署
+## 直接部署 php
 
 1. PHP 7.0 或更高版本。   
 2. 在 ``config.php`` 填入你的 SteamAPI Key 。你可以在 [这里](https://steamcommunity.com/dev) 获取。   
@@ -28,11 +29,22 @@
 ``sudo apt-get install php<版本号>-imagick``,   
 例如: ``sudo apt-get install php8.1-imagick``.
 
+## 或者用 Docker
+[OrangeJuice-Stats-Docker](https://github.com/Hanekihyouka/OrangeJuice-Stats-Docker).   
+
 # 公共实例
 
 全球统计的入口是 [global.php](https://interface.100oj.com/stat/global.php) 。
 
 个人统计的入口是 [player.php](https://interface.100oj.com/stat/player.php) 。
+
+个人统计生成图片的入口是 ``render.php``，   
+``https://interface.100oj.com/stat/render.php?steamid=<steamid>``   
+``https://interface.100oj.com/stat/render.php?steamid=<steamid>&limit=<rows>&render=<typeid>``   
+
+必填的参数是 ``steamid=你的steam64位id``，形如 7656xxxxxxxxxxxxx.   
+可选的参数有 ``limit=角色数量``，``render=使用的样式编号`` 样式编号可以填 0 到 7 的整数。   
+
 
 ## License
 沿用旧项目的 [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)
