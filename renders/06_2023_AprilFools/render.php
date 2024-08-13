@@ -19,7 +19,7 @@ function build($contentObject,$profileObejct){
     imagefill($im,0,0,$pngTransparency);
 
 
-    $font = "./renders/06_2023_AprilFools/images/方正静蕾.ttf";
+    $font = "./images/方正静蕾.ttf";
     $im_base = imagecreatefrompng("./renders/06_2023_AprilFools/images/ap-render.png");
     //imagealphablending($im_base, false);
     //imagesavealpha($im_base , true);

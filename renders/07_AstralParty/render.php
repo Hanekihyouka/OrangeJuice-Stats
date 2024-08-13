@@ -28,7 +28,7 @@ function build($contentObject,$profileObejct){
     
     // info
     $draw->setFillColor(new ImagickPixel('#000'));
-    $draw -> setFont("./renders/07_AstralParty/images/Clash_Regular_Final.ttf");
+    $draw -> setFont("./images/Clash_Regular_Final.ttf");
     // nick
     if(isset($_GET["nick"])){
         $nick = $_GET["nick"];
@@ -50,13 +50,13 @@ function build($contentObject,$profileObejct){
     $draw->setFontSize(12);
     $draw->annotation(35, 423, date("Y-m-d"));
     //wtf
-    $draw->setFont("./renders/07_AstralParty/images/SgaSmoothRegular-DO0Y3.ttf");
+    $draw->setFont("./images/SgaSmoothRegular-DO0Y3.ttf");
     $uidstr = convertToBase26(substr($_GET["steamid"],0,8));
     $uidstr .= convertToBase26(substr($_GET["steamid"],8));
     $draw->annotation(185, 423,$uidstr);
     //reset font
     // Level && Online  Games  Win && xp++/level
-    $draw->setFont("./renders/07_AstralParty/images/Clash_Regular_Final.ttf");
+    $draw->setFont("./images/Clash_Regular_Final.ttf");
     $draw->setFillColor(new ImagickPixel('#000'));
     $draw->setFontSize(12);
     $draw->annotation(131, 370, 'Lv.');

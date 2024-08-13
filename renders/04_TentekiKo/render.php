@@ -56,7 +56,7 @@ function build($contentObject,$profileObejct){
 
     // info
     $draw->setFillColor(new ImagickPixel('#fff'));
-    $draw -> setFont("./renders/04_TentekiKo/images/ResourceHanRoundedCN-Medium.ttf");
+    $draw -> setFont("./images/ResourceHanRoundedCN-Medium.ttf");
     // nick
     if(isset($_GET["nick"])){
         $nick = $_GET["nick"];
@@ -66,7 +66,7 @@ function build($contentObject,$profileObejct){
     $draw->setFontSize(27);
     $draw->annotation(137, 34, $nick);
     // Level && Online  Games  Win && xp++/level
-    $draw->setFont("./renders/04_TentekiKo/images/RockoUltraFLF.ttf");
+    $draw->setFont("./images/RockoUltraFLF.ttf");
     $draw->setFillColor(new ImagickPixel('#666'));
     $draw->setFontSize(19);
     $draw->annotation(143, 67, 'Level');

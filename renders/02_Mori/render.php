@@ -79,7 +79,7 @@ function build($contentObject,$profileObejct){
     }else{
         $nick = $profileObejct["personaname"];
     }
-    $draw -> setFont("./renders/02_Mori/images/ARHei.ttf");
+    $draw -> setFont("./images/ARHei.ttf");
     //sp1 for sp Nick Color
     $sp1 = 0;
     if(isset($_GET["sp1"])){
