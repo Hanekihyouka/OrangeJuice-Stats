@@ -20,7 +20,7 @@ if (isset($_GET["steamid"])){
 }
 
 $render = 0;
-$renders = ["default","01_Mori","02_Mori","03_Tico","04_TentekiKo","05_TentekiKo","06_2023_AprilFools","07_AstralParty"];
+$renders = ["default","01_Mori","02_Mori","03_Tico","04_TentekiKo","05_TentekiKo","06_2023_AprilFools","07_AstralParty","08_MaimaiDX"];
 if (isset($_GET["render"])){
     $render=$_GET["render"];
 }
