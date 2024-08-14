@@ -6,21 +6,6 @@ function build($contentObject,$profileObejct){
 //background
     $im = new Imagick("./renders/08_MaimaiDX/images/back.png");
     $im->roundCornersImage(4, 4);
-// unit
-// sp1
-    
-// TODO
-    $sp1 = 0;
-    if(isset($_GET["sp1"])){
-        $sp1 = intval($_GET["sp1"]);
-    }
-    if($sp1>0){
-        $im_sp_file = "./images/sp1_".$sp1.".png";
-        $im_sp = new Imagick($im_sp_file);
-        $im_sp->resizeImage(35, 35, 0.9, 1, true);
-        $im->compositeImage($im_sp, $im_sp->getImageCompose(), 360, 55);
-    }
-
 // Text
     $text = new Imagick();
     $text->newImage($im_w, $im_h, 'none');
@@ -167,6 +152,18 @@ function build($contentObject,$profileObejct){
     $text->drawImage($draw);
     $im->compositeImage($text, $text->getImageCompose(), 0, 0);
 
+// sp1
+    $sp1 = 0;
+    if(isset($_GET["sp1"])){
+        $sp1 = intval($_GET["sp1"]);
+    }
+    if($sp1>0){
+        $im_sp_file = "./images/sp1_".$sp1.".png";
+        $im_sp = new Imagick($im_sp_file);
+        $im_sp->resizeImage(64, 64, 0.9, 1, true);
+        $im->compositeImage($im_sp, $im_sp->getImageCompose(), 553, 42);
+    }
+    
 
 // render
     echo $im->getImageBlob();
