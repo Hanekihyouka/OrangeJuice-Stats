@@ -11,6 +11,14 @@ This project is an enhanced version of [orange-juice-stats](https://gitlab.com/g
 I build this repo in order to make it easier to look up global stats and player stats.   
 Deploying it on 100oj.com making it part of the many Orange Juice tools available, in early 2021.    
 
+![render0](doc/render0.png)   
+
+![render1](doc/render1.png)   
+
+![render5](doc/render5.png)   
+
+![render7](doc/render7.png)   
+
 # Setup
 
 ## Setup from source
@@ -43,8 +51,8 @@ see [OrangeJuice-Stats-Docker](https://github.com/Hanekihyouka/OrangeJuice-Stats
 or ``https://interface.100oj.com/stat/render.php?steamid=<steamid>&limit=<rows>&render=<typeid>``   
 
 ``steamid=`` is your [steam 64bit id](https://steamid.io/), like 7656xxxxxxxxxxxxx.   
-``limit=`` is the number of rows, can be 0\~80+.   
-``render=`` is the type of render, can be 0\~7.
+``limit=`` is the number of rows, can be 0\~80+. (only works on render=0)   
+``render=`` is the type of render, can be 0\~8.
 
 ## License
 [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)

@@ -11,6 +11,14 @@
 
 羽希在 2021 年初将其重新整理并拓展到全球统计，部署到 100oj.com 使其成为众多橙汁工具的一部分。
 
+![render0](doc/render0.png)   
+
+![render1](doc/render1.png)   
+
+![render5](doc/render5.png)   
+
+![render7](doc/render7.png)   
+
 # 部署
 ## 直接部署 php
 
@@ -43,7 +51,8 @@
 ``https://interface.100oj.com/stat/render.php?steamid=<steamid>&limit=<rows>&render=<typeid>``   
 
 必填的参数是 ``steamid=你的steam64位id``，形如 7656xxxxxxxxxxxxx.   
-可选的参数有 ``limit=角色数量``，``render=使用的样式编号`` 样式编号可以填 0 到 7 的整数。   
+可选的参数有 ``limit=角色数量``(只对 render=0 起效)，   
+``render=使用的样式编号`` 样式编号可以填 0 到 7 的整数。   
 
 
 ## License
