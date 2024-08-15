@@ -51,8 +51,8 @@
 ``https://interface.100oj.com/stat/render.php?steamid=<steamid>&limit=<rows>&render=<typeid>``   
 
 必填的参数是 ``steamid=你的steam64位id``，形如 7656xxxxxxxxxxxxx.   
-可选的参数有 ``limit=角色数量``(只对 render=0 起效)，   
-``render=使用的样式编号`` 样式编号可以填 0 到 7 的整数。   
+可选的参数有 ``limit=角色数量``，   
+``render=使用的样式编号`` 样式编号可以填 0 到 8 的整数。   
 
 
 ## License

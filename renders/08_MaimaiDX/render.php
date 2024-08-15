@@ -1,10 +1,20 @@
 <?php
 function build($contentObject,$profileObejct){
+    $limit = 50;
+    if(isset($_GET["limit"])){
+        $limit = intval($_GET["limit"]);
+        if($limit < 0){$limit = 0;}
+        if($limit > sizeof($contentObject[0])){
+            $limit = sizeof($contentObject[0]);
+        }
+    }
+    $row_limit = ceil($limit/5);
     $im_w = 2048;
-    $im_h = 1626;
-
+    //$im_h = 1626;
+    $im_h = 346 + $row_limit*128;
 //background
     $im = new Imagick("./renders/08_MaimaiDX/images/back.png");
+    $im->cropImage($im_w,$im_h,0,0);
     $im->roundCornersImage(4, 4);
 // Text
     $text = new Imagick();
@@ -12,10 +22,16 @@ function build($contentObject,$profileObejct){
     $text->setImageFormat('png');
 
     $draw = new ImagickDraw();
-    
+    // blank
+    if ($row_limit>0){
+        $draw->setFillColor("rgba(255, 255, 255, 0.55)");
+        $draw->roundRectangle(57,289,$im_w-57,$im_h-45,30,30);
+        $im->drawImage($draw);
+        $draw->clear();
+    }
     // info
     $draw->setFillColor(new ImagickPixel('#000'));
-    $draw -> setFont("./images/ARHei.ttf");
+    $draw->setFont("./images/ARHei.ttf");
     // nick
     if(isset($_GET["nick"])){
         $nick = $_GET["nick"];
@@ -30,20 +46,21 @@ function build($contentObject,$profileObejct){
     $draw->setFontSize(54);
     $draw->annotation(603, 192, 'Lv.');
     $draw->setFontSize(48);
-    $draw->annotation(1100, 106, 'Wins');//Online wins
-    $draw->annotation(1100, 151, 'Played');//Online played
-    $draw->annotation(1100, 196, 'Coop');//Coop played
-    $draw->annotation(1100, 241, 'BH Wins');//Online BH wins
+    $draw->annotation(1150, 106, 'Wins');//Online wins
+    $draw->annotation(1150, 151, 'Played');//Online played
+    $draw->annotation(1150, 196, 'Coop');//Coop played
+    $draw->annotation(1150, 241, 'BH Wins');//Online BH wins
 // chara slot
     //排序
     arsort($contentObject[0]);
     //遍历画数据
     $row=0;
-    for(;$row<10;$row++){//10 行，每行 5 个，共 b50
+    for(;$row<$row_limit;$row++){//10 行，每行 5 个，共 b50
         $row_y=300+$row*128;
         $i=0;
         for(;$i<5;$i++){
             $chara_index=$i+$row*5;
+            if($chara_index==$limit){break 2;}
             if($chara_index<sizeof($contentObject[0])){
                 $chara_key = array_keys($contentObject[0])[$chara_index];
                 $chara_displayname = getDisplayName($chara_key);

@@ -51,7 +51,7 @@ see [OrangeJuice-Stats-Docker](https://github.com/Hanekihyouka/OrangeJuice-Stats
 or ``https://interface.100oj.com/stat/render.php?steamid=<steamid>&limit=<rows>&render=<typeid>``   
 
 ``steamid=`` is your [steam 64bit id](https://steamid.io/), like 7656xxxxxxxxxxxxx.   
-``limit=`` is the number of rows, can be 0\~80+. (only works on render=0)   
+``limit=`` is the number of rows, can be 0\~80+.   
 ``render=`` is the type of render, can be 0\~8.
 
 ## License
