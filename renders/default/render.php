@@ -4,9 +4,9 @@ function build($contentObject,$profileObejct){
     if(isset($_GET["limit"])){
         $limit = intval($_GET["limit"]);
         if($limit < 0){$limit = 0;}
-        if($limit > sizeof($contentObject[0])){
-            $limit = sizeof($contentObject[0]);
-        }
+    }
+    if($limit > sizeof($contentObject[0])){
+        $limit = sizeof($contentObject[0]);
     }
     //sp1 for pin
     $sp1 = 0;
