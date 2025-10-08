@@ -1,4 +1,4 @@
-<?php
+// <?php
 //ini_set("display_errors", "On");//打开错误提示
 //ini_set("error_reporting",E_ALL);//显示所有错误
 require_once ("util/PlayerDataBuilder.php");
@@ -148,7 +148,7 @@ $contentJson = json_encode($contentObject);
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan="5" class="visible-md visible-lg">
+                    <td rowspan="6" class="visible-md visible-lg">
                         <a href="player.php">
                             <img width="200" src="images/logo.png" >
                         </a>
@@ -235,6 +235,23 @@ $contentJson = json_encode($contentObject);
                     </td>
                     <td>
                         <p><?php echo $contentObject[3]["STAT_PLAYER_EXP2E"]["value"]; ?></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" class="visible-md visible-lg">
+                        <img class="role_icon" title="Vanguard" alt="Vanguard" src="./images/role5.png">
+                    </td>
+                    <td>
+                        <p>先驱者 等级:</p>
+                    </td>
+                    <td>
+                        <p><?php echo floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2F']["value"]))/6); ?></p>
+                    </td>
+                    <td>
+                        <p>经验:</p>
+                    </td>
+                    <td>
+                        <p><?php echo $contentObject[3]["STAT_PLAYER_EXP2F"]["value"]; ?></p>
                     </td>
                 </tr>
             </table>
