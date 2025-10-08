@@ -1,6 +1,6 @@
 <?php
 function build($contentObject,$profileObejct){
-    $im_w = 700;
+    $im_w = 760;
     $im_h = 400;
     $im_avatar = new Imagick($profileObejct["avatarfull"]);
     //$im_avatar = new Imagick("./avatar184.jpg");
@@ -24,9 +24,9 @@ function build($contentObject,$profileObejct){
     $shadow_layer -> compositeImage($im_avatar, Imagick::COMPOSITE_OVER, 0, 0);
     $im -> compositeImage($shadow_layer, imagick::COMPOSITE_DEFAULT, 50, 50);
 
-    addGlass($im,$im_glass,'rgba(20,20,20,0.4)',370,50,300,130);
-    addGlass($im,$im_glass,'rgba(20,20,20,0.4)',370,200,300,50);
-    addGlass($im,$im_glass,'rgba(20,20,20,0.4)',370,270,300,80);
+    addGlass($im,$im_glass,'rgba(20,20,20,0.4)',370,50,360,130);
+    addGlass($im,$im_glass,'rgba(20,20,20,0.4)',370,200,360,50);
+    addGlass($im,$im_glass,'rgba(20,20,20,0.4)',370,270,360,80);
 
 // Text
     $text = new Imagick();
@@ -38,14 +38,15 @@ function build($contentObject,$profileObejct){
     $draw -> setFillColor(new ImagickPixel('#fff'));
     $draw -> setFont("./images/SAO.otf");
     $draw -> setFontSize(45);
-    $draw -> annotation(400, 137, $contentObject[3]["STAT_PLAYER_LEVEL"]["value"]);
-    $draw -> annotation(490, 92, $contentObject[3]["STAT_ONLINE_GAMES_PLAYED"]["value"]);
-    $draw -> annotation(490, 157, $contentObject[3]["STAT_C_GAMES_PLAYED"]["value"]);
+    $draw -> annotation(415, 137, $contentObject[3]["STAT_PLAYER_LEVEL"]["value"]);
+    $draw -> annotation(520, 92, $contentObject[3]["STAT_ONLINE_GAMES_PLAYED"]["value"]);
+    $draw -> annotation(520, 157, $contentObject[3]["STAT_ONLINE_GAMES_WON"]["value"]);
 
 
-// NPC_DEFEATS
+// Line2
     $draw -> setFontSize(30);
-    $draw -> annotation(430, 237, $contentObject[3]["STAT_NPC_DEFEATS"]["value"]);
+    $draw -> annotation(415, 234, $contentObject[3]["STAT_C_GAMES_PLAYED"]["value"]);
+    $draw -> annotation(565, 234, $contentObject[3]["STAT_ONLINE_BH_GAMES_PLAYED"]["value"]);
 // Coop role levels
     $draw -> setFontSize(37);
     $role_distance = 60;
@@ -57,21 +58,22 @@ function build($contentObject,$profileObejct){
     $draw -> annotation($role_x + $role_distance*1, $role_y, floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2B']["value"]))/6));
     $draw -> setFillColor(new ImagickPixel('#98FB98'));
     $draw -> annotation($role_x + $role_distance*2, $role_y, floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2C']["value"]))/6));
-    $draw -> setFillColor(new ImagickPixel('#F4A460'));
+    $draw -> setFillColor(new ImagickPixel('#FF8C00'));
     $draw -> annotation($role_x + $role_distance*3, $role_y, floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2D']["value"]))/6));
     $draw -> setFillColor(new ImagickPixel('#BA55D3'));
     $draw -> annotation($role_x + $role_distance*4, $role_y, floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2E']["value"]))/6));
+    $draw -> setFillColor(new ImagickPixel('#FFD700'));
+    $draw -> annotation($role_x + $role_distance*5, $role_y, floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2F']["value"]))/6));
 
 // Titles
     $draw -> setFillColor(new ImagickPixel('#bbb'));
     $draw -> setFontSize(17);
-    $draw -> annotation(400, 96, 'Level');
-    $draw -> annotation(550, 110, 'Online  Games  Played');
-    $draw -> annotation(550, 175, 'Coop  Games  Played');
-    $draw -> annotation(475, $role_y - 40, 'Coop Role Levels');
-// Title NPC
-    $draw -> setFontSize(25);
-    $draw -> annotation(530, 237, 'NPC Defeats');
+    $draw -> annotation(415, 96, 'Level');
+    $draw -> annotation(580, 110, 'Online  Games  Played');
+    $draw -> annotation(537, 175, 'Online  Games  Won');
+    $draw -> annotation(505, $role_y - 40, 'Coop Role Levels');
+    $draw -> annotation(460, 248, 'Coop Games Played');
+    $draw -> annotation(610, 248, 'BH Games Played');
 
 // Nick  !!! Font
     if(isset($_GET["nick"])){

@@ -745,7 +745,7 @@ $dictionary_schematic = [
     "STAT_PLAYER_EXP2C"=>["descr"=>"职业经验 支援者"],
     "STAT_PLAYER_EXP2D"=>["descr"=>"职业经验 复仇者"],
     "STAT_PLAYER_EXP2E"=>["descr"=>"职业经验 发牌者"],
-    "STAT_PLAYER_EXP2F"=>["descr"=>"need help"],
+    "STAT_PLAYER_EXP2F"=>["descr"=>"职业经验 先驱者"],
     "STAT_EVT_13A"=>["descr"=>"need help"],
     "STAT_EVT_13B"=>["descr"=>"need help"],
     "STAT_EVT_13C"=>["descr"=>"need help"],

@@ -40,9 +40,9 @@ function build($contentObject,$profileObejct){
     imagecopy($im,$im_avatar,100,100+25,0,0,imagesx($im_avatar),imagesy($im_avatar));
     imagedestroy($im_avatar);
     //合作职业icon
-    for ($i = 0 ; $i < 5 ;$i++){
+    for ($i = 0 ; $i < 6 ;$i++){
         $im_role = imagecreatefrompng("./images/role".$i.".png");
-        imagecopy($im,$im_role,500,100+$i*70,0,0,imagesx($im_role),imagesy($im_role));
+        imagecopy($im,$im_role,500,100+$i*55,0,0,imagesx($im_role),imagesy($im_role));
         imagedestroy($im_role);
     }
     //pin
@@ -99,10 +99,11 @@ function build($contentObject,$profileObejct){
 
     //合作职业等级
     imagefttext($im,27,0,570,155,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2A']["value"]))/6));
-    imagefttext($im,27,0,570,155+70,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2B']["value"]))/6));
-    imagefttext($im,27,0,570,155+70*2,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2C']["value"]))/6));
-    imagefttext($im,27,0,570,155+70*3,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2D']["value"]))/6));
-    imagefttext($im,27,0,570,155+70*4,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2E']["value"]))/6));
+    imagefttext($im,27,0,570,155+55,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2B']["value"]))/6));
+    imagefttext($im,27,0,570,155+55*2,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2C']["value"]))/6));
+    imagefttext($im,27,0,570,155+55*3,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2D']["value"]))/6));
+    imagefttext($im,27,0,570,155+55*4,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2E']["value"]))/6));
+    imagefttext($im,27,0,570,155+55*5,$color_darkgray,"./images/SAO.otf",floor((-11+sqrt(289.0+2.4*$contentObject[3]['STAT_PLAYER_EXP2F']["value"]))/6));
     //表头
     if($limit > 0){
         imagefttext($im,24,0,170,445,$color_gray,"./images/SAO.otf","games");
