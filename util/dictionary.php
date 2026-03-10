@@ -192,6 +192,10 @@ $dictionary_stats = [
     "STAT_OJ55_C13"=>["displayName"=>"Kanata","statGroup"=>"chara_wins"],
     "STAT_OJ56_C02"=>["displayName"=>"Popomi","statGroup"=>"chara_games"],
     "STAT_OJ56_C03"=>["displayName"=>"Popomi","statGroup"=>"chara_wins"],
+    "STAT_OJ59_C02"=>["displayName"=>"Mimomo","statGroup"=>"chara_games"],
+    "STAT_OJ59_C03"=>["displayName"=>"Mimomo","statGroup"=>"chara_wins"],
+    "STAT_OJ59_C12"=>["displayName"=>"Kurie","statGroup"=>"chara_games"],
+    "STAT_OJ59_C13"=>["displayName"=>"Kurie","statGroup"=>"chara_wins"],
     
     //卡牌
     "STAT_CARD_DASH_CHOSEN"=>["displayName"=>"CARD_BOOST_DASH","statGroup"=>"card"],
@@ -350,6 +354,8 @@ $dictionary_games = [
     "STAT_OJ55_C02",
     "STAT_OJ55_C12",
     "STAT_OJ56_C02",
+    "STAT_OJ59_C12",
+    "STAT_OJ59_C02",
 ];
 
 $dictionary_wins = [
@@ -448,6 +454,8 @@ $dictionary_wins = [
     "STAT_OJ55_C03",
     "STAT_OJ55_C13",
     "STAT_OJ56_C03",
+    "STAT_OJ59_C13",
+    "STAT_OJ59_C03",
 ];
 
 $dictionary_schematic = [
@@ -976,6 +984,12 @@ $dictionary_schematic = [
     "STAT_OJ56_C01"=>["descr"=>"总场数 Popomi"],
     "STAT_OJ56_C02"=>["descr"=>"线上总场数 Popomi"],
     "STAT_OJ56_C03"=>["descr"=>"线上胜场 Popomi"],
+    "STAT_OJ59_C11"=>["descr"=>"总场数 Mimomo"],
+    "STAT_OJ59_C12"=>["descr"=>"线上总场数 Mimomo"],
+    "STAT_OJ59_C13"=>["descr"=>"线上胜场 Mimomo"],
+    "STAT_OJ59_C01"=>["descr"=>"总场数 Kurie"],
+    "STAT_OJ59_C02"=>["descr"=>"线上总场数 Kurie"],
+    "STAT_OJ59_C03"=>["descr"=>"线上胜场 Kurie"],
 ];
 
 $dictionary_res = [
@@ -1075,6 +1089,8 @@ $dictionary_res = [
     "Haruka" => ["face" => "haruka","hyper_icon" => "hypebringer","render7_offset_y" => -65],
     "Kanata" => ["face" => "kanata","hyper_icon" => "fiveheadbluff","render7_offset_y" => -110],
     "Popomi" => ["face" => "popomi","hyper_icon" => "tryhardrolls","render7_offset_y" => 35],
+    "Mimomo" => ["face" => "mimomo","hyper_icon" => "gyaru","render7_offset_y" => 65],
+    "Kurie" => ["face" => "kurie","hyper_icon" => "teacher","render7_offset_y" => 45],
 ];
 
 function getDisplayName($stat_name){
