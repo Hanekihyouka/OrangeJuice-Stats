@@ -196,7 +196,10 @@ $dictionary_stats = [
     "STAT_OJ59_C03"=>["displayName"=>"Mimomo","statGroup"=>"chara_wins"],
     "STAT_OJ59_C12"=>["displayName"=>"Kurie","statGroup"=>"chara_games"],
     "STAT_OJ59_C13"=>["displayName"=>"Kurie","statGroup"=>"chara_wins"],
-    
+    "STAT_OJ60_C02"=>["displayName"=>"Rinse","statGroup"=>"chara_games"],
+    "STAT_OJ60_C03"=>["displayName"=>"Rinse","statGroup"=>"chara_wins"],
+    "STAT_OJ60_C12"=>["displayName"=>"Suishou","statGroup"=>"chara_games"],
+    "STAT_OJ60_C13"=>["displayName"=>"Suishou","statGroup"=>"chara_wins"],
     //卡牌
     "STAT_CARD_DASH_CHOSEN"=>["displayName"=>"CARD_BOOST_DASH","statGroup"=>"card"],
     "STAT_CARD_SAKISCOOKIE_CHOSEN"=>["displayName"=>"CARD_BOOST_COOKIE","statGroup"=>"card"],
@@ -356,6 +359,8 @@ $dictionary_games = [
     "STAT_OJ56_C02",
     "STAT_OJ59_C12",
     "STAT_OJ59_C02",
+    "STAT_OJ60_C12",
+    "STAT_OJ60_C02",
 ];
 
 $dictionary_wins = [
@@ -456,6 +461,8 @@ $dictionary_wins = [
     "STAT_OJ56_C03",
     "STAT_OJ59_C13",
     "STAT_OJ59_C03",
+    "STAT_OJ60_C13",
+    "STAT_OJ60_C03",
 ];
 
 $dictionary_schematic = [
@@ -984,12 +991,18 @@ $dictionary_schematic = [
     "STAT_OJ56_C01"=>["descr"=>"总场数 Popomi"],
     "STAT_OJ56_C02"=>["descr"=>"线上总场数 Popomi"],
     "STAT_OJ56_C03"=>["descr"=>"线上胜场 Popomi"],
-    "STAT_OJ59_C11"=>["descr"=>"总场数 Mimomo"],
-    "STAT_OJ59_C12"=>["descr"=>"线上总场数 Mimomo"],
-    "STAT_OJ59_C13"=>["descr"=>"线上胜场 Mimomo"],
-    "STAT_OJ59_C01"=>["descr"=>"总场数 Kurie"],
-    "STAT_OJ59_C02"=>["descr"=>"线上总场数 Kurie"],
-    "STAT_OJ59_C03"=>["descr"=>"线上胜场 Kurie"],
+    "STAT_OJ59_C01"=>["descr"=>"总场数 Mimomo"],
+    "STAT_OJ59_C02"=>["descr"=>"线上总场数 Mimomo"],
+    "STAT_OJ59_C03"=>["descr"=>"线上胜场 Mimomo"],
+    "STAT_OJ59_C11"=>["descr"=>"总场数 Kurie"],
+    "STAT_OJ59_C12"=>["descr"=>"线上总场数 Kurie"],
+    "STAT_OJ59_C13"=>["descr"=>"线上胜场 Kurie"],
+    "STAT_OJ60_C01"=>["descr"=>"总场数 Rinse"],
+    "STAT_OJ60_C02"=>["descr"=>"线上总场数 Rinse"],
+    "STAT_OJ60_C03"=>["descr"=>"线上胜场 Rinse"],
+    "STAT_OJ60_C11"=>["descr"=>"总场数 Suishou"],
+    "STAT_OJ60_C12"=>["descr"=>"线上总场数 Suishou"],
+    "STAT_OJ60_C13"=>["descr"=>"线上胜场 Suishou"],
 ];
 
 $dictionary_res = [
@@ -1091,6 +1104,8 @@ $dictionary_res = [
     "Popomi" => ["face" => "popomi","hyper_icon" => "tryhardrolls","render7_offset_y" => 35],
     "Mimomo" => ["face" => "mimomo","hyper_icon" => "gyaru","render7_offset_y" => 65],
     "Kurie" => ["face" => "kurie","hyper_icon" => "teacher","render7_offset_y" => 45],
+    "Rinse" => ["face" => "rinse","hyper_icon" => "ladypower","render7_offset_y" => 64],
+    "Suishou" => ["face" => "suishou","hyper_icon" => "yukimura","render7_offset_y" => 25],
 ];
 
 function getDisplayName($stat_name){
