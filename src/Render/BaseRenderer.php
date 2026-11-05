@@ -81,10 +81,16 @@ abstract class BaseRenderer implements Renderer
         imagecopy($target, $source, $x, $y, 0, 0, imagesx($source), imagesy($source));
     }
 
-    protected static function gdPng(\GdImage $image): string
+    protected static function gdEncode(\GdImage $image, ImageFormat $format): string
     {
         ob_start();
-        imagepng($image);
+        if ($format === ImageFormat::Webp) {
+            imagepalettetotruecolor($image); // WebP needs a true colour image
+            imagesavealpha($image, true);
+            imagewebp($image, null, ImageFormat::WEBP_QUALITY);
+        } else {
+            imagepng($image);
+        }
 
         return (string) ob_get_clean();
     }
@@ -118,9 +124,12 @@ abstract class BaseRenderer implements Renderer
         $target->compositeImage($source, $source->getImageCompose(), (int) $x, (int) $y);
     }
 
-    protected static function imagickPng(\Imagick $image): string
+    protected static function imagickEncode(\Imagick $image, ImageFormat $format): string
     {
-        $image->setImageFormat('png');
+        $image->setImageFormat($format->value);
+        if ($format === ImageFormat::Webp) {
+            $image->setImageCompressionQuality(ImageFormat::WEBP_QUALITY);
+        }
 
         return $image->getImageBlob();
     }

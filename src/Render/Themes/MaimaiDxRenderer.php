@@ -105,7 +105,7 @@ final class MaimaiDxRenderer extends BaseRenderer
             self::imagickComposite($im, $pin, self::PX - 57, self::PY - 67);
         }
 
-        return self::imagickPng($im);
+        return self::imagickEncode($im, $input->format);
     }
 
     private function drawSlot(\Imagick $im, \ImagickDraw $draw, CharacterRecord $record, int $x, int $y): void

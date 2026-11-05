@@ -25,7 +25,7 @@
 | --- | --- |
 | `global.php` | 全球统计：每个角色的总场数、胜场、胜率。可选择日期范围（UTC），不选则显示全部时间。 |
 | `player.php` | 个人统计：等级、合作职业、角色、卡牌、赏金等数据。 |
-| `render.php` | 图像 API：把个人统计渲染成 PNG 图片。 |
+| `render.php` | 图像 API：把个人统计渲染成图片（默认 WebP，可选 PNG）。 |
 
 ### 全球数据缓存
 Steam 的全球统计按 UTC 日存储。除了最近两天（昨天和今天）的数据仍在变化、每次实时查询之外，
@@ -46,7 +46,9 @@ php bin/warm-cache.php 2026-01-01 2026-06-30   # 指定范围
 查询失败（例如隐私设置未公开）不会被缓存。
 
 ### 图像 API
-`render.php?steamid=<steamid>[&render=<0-8>][&limit=<行数>][&nick=<昵称>][&sp1=<徽章>]`
+`render.php?steamid=<steamid>[&render=<0-8>][&limit=<行数>][&nick=<昵称>][&sp1=<徽章>][&format=png]`
+
+默认返回 WebP（有损，质量 90，体积约为 PNG 的 1/4）；指定 `format=png` 时返回 PNG。
 
 | 参数 | 说明 |
 | --- | --- |
@@ -56,6 +58,7 @@ php bin/warm-cache.php 2026-01-01 2026-06-30   # 指定范围
 | `nick` | 自定义昵称 |
 | `sp1` | 徽章编号（样式 1、2 中是昵称颜色） |
 | `hyper_icon`、`y_offset` | 样式 7 的 Hyper 卡图标与裁剪偏移，偏移为负数时水平翻转 |
+| `format` | `png` 返回 PNG；不填（或 `webp`）返回 WebP |
 
 # 部署
 

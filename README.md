@@ -25,7 +25,7 @@ and deployed it on 100oj.com in early 2021 as part of the many Orange Juice tool
 | --- | --- |
 | `global.php` | Global stats: games, wins and win rate of every character, for all time or a range of (UTC) days. |
 | `player.php` | Player stats: level, co-op roles, characters, cards, bounties... |
-| `render.php` | Image API: a player's stats rendered as PNG. |
+| `render.php` | Image API: a player's stats rendered as an image (WebP by default, PNG optional). |
 
 ### Global stats cache
 Steam buckets global stats by UTC day. The two most recent days (yesterday and today) are still changing
@@ -47,7 +47,9 @@ Within `player_cache_ttl` (3600 seconds by default) the cached data is used; aft
 queried again. Failed queries (e.g. private profiles) are not cached.
 
 ### Image API
-`render.php?steamid=<steamid>[&render=<0-8>][&limit=<rows>][&nick=<name>][&sp1=<pin>]`
+`render.php?steamid=<steamid>[&render=<0-8>][&limit=<rows>][&nick=<name>][&sp1=<pin>][&format=png]`
+
+Images are WebP by default (lossy, quality 90, about 1/4 the size of PNG); `format=png` returns PNG.
 
 | Parameter | Description |
 | --- | --- |
@@ -57,6 +59,7 @@ queried again. Failed queries (e.g. private profiles) are not cached.
 | `nick` | nickname override |
 | `sp1` | pin badge (nickname colour for styles 1 and 2) |
 | `hyper_icon`, `y_offset` | hyper card icon / crop offset of style 7; a negative offset mirrors it |
+| `format` | `png` for PNG; absent (or `webp`) for WebP |
 
 # Setup
 

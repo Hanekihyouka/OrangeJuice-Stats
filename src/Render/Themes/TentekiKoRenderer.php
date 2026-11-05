@@ -81,6 +81,6 @@ final class TentekiKoRenderer extends BaseRenderer
         $text->drawImage($draw);
         self::imagickComposite($im, $text, 0, 0);
 
-        return self::imagickPng($im);
+        return self::imagickEncode($im, $input->format);
     }
 }

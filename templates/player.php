@@ -119,7 +119,8 @@ $renderUrl = $this->absoluteUrl('render.php', ['steamid' => (string) $profile->s
             <input type="text" class="form-control js-select-on-focus" readonly value="<?= $this->e($renderUrl) ?>">
             <p class="text-muted small">
                 可选参数：<code>render=<?= min($renderIds) ?>~<?= max($renderIds) ?></code> 样式，
-                <code>limit=</code> 显示的角色数量，<code>nick=</code> 自定义昵称，<code>sp1=</code> 徽章。
+                <code>limit=</code> 显示的角色数量，<code>nick=</code> 自定义昵称，<code>sp1=</code> 徽章，
+                <code>format=png</code> 返回 PNG（默认返回体积更小的 WebP）。
             </p>
             <div class="render-previews">
                 <?php foreach ($renderIds as $id): ?>

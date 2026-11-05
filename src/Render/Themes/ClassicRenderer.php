@@ -94,6 +94,6 @@ final class ClassicRenderer extends BaseRenderer
             imagefttext($im, 26, 0, 500, $baseline, $black, $font, $record->name);
         }
 
-        return self::gdPng($im);
+        return self::gdEncode($im, $input->format);
     }
 }

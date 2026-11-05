@@ -122,7 +122,7 @@ final class MoriRenderer extends BaseRenderer
         $text->drawImage($draw);
         self::imagickComposite($im, $text, 0, 0);
 
-        return self::imagickPng($im);
+        return self::imagickEncode($im, $input->format);
     }
 
     /** Semi transparent panel with drop shadow, optionally sheared. */

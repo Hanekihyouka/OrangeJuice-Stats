@@ -45,6 +45,6 @@ final class TicoRenderer extends BaseRenderer
         imagefttext($im, 20, 0, 515, 360, $black, $font,
             "{$stats->bountyGamesWon()}/{$stats->bountyGamesPlayed()}  =  " . self::percent($stats->bountyWinRate()) . '%');
 
-        return self::gdPng($im);
+        return self::gdEncode($im, $input->format);
     }
 }

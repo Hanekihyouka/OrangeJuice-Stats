@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Image API: a player's stats rendered as PNG.
+ * Image API: a player's stats rendered as an image (WebP, or PNG with format=png).
  *
  * Query:
  *   steamid     SteamID64 (required)
@@ -13,8 +13,10 @@ declare(strict_types=1);
  *   sp1         pin badge id (nickname colour for renders 1 and 2)
  *   hyper_icon  hyper card icon override (render 7)
  *   y_offset    hyper card crop offset override, negative mirrors it (render 7)
+ *   format      "png" for PNG output; default is WebP
  */
 
+use OJStats\Render\ImageFormat;
 use OJStats\Render\RenderInput;
 use OJStats\Steam\PrivateStatsException;
 use OJStats\Steam\SteamApiException;
@@ -38,11 +40,21 @@ $intParam = static function (string $name): ?int {
     return $value === false ? null : $value;
 };
 
-$steamId = SteamId::tryParse($_GET['steamid'] ?? null) ?? $fail(400, 'Missing or invalid steamid (SteamID64).');
+/** String query parameter, null when absent or not a string (e.g. "nick[]=..."). */
+$strParam = static function (string $name): ?string {
+    $value = $_GET[$name] ?? null;
+
+    return is_string($value) ? $value : null;
+};
+
+$steamId = SteamId::tryParse($strParam('steamid')) ?? $fail(400, 'Missing or invalid steamid (SteamID64).');
 $renderers = $app->renderers();
 $renderId = isset($_GET['render']) ? $intParam('render') : 0;
 $renderer = ($renderId !== null ? $renderers->get($renderId) : null)
     ?? $fail(400, 'Unknown render, valid values: ' . implode(', ', $renderers->ids()) . '.');
+
+$format = ImageFormat::tryFrom(strtolower(isset($_GET['format']) ? ($strParam('format') ?? '') : ImageFormat::Webp->value))
+    ?? $fail(400, 'Unknown format, valid values: ' . implode(', ', array_column(ImageFormat::cases(), 'value')) . '.');
 
 try {
     $player = $app->players()->get($steamId);
@@ -53,7 +65,7 @@ try {
 }
 
 $assets = $renderers->assets;
-$nick = trim((string) ($_GET['nick'] ?? ''));
+$nick = trim($strParam('nick') ?? '');
 $pinId = max(0, $intParam('sp1') ?? 0);
 
 $input = new RenderInput(
@@ -65,13 +77,14 @@ $input = new RenderInput(
     nick: $nick !== '' ? mb_substr($nick, 0, 64) : null,
     pinId: $pinId,
     pin: $assets->pin($pinId),
-    hyperIcon: isset($_GET['hyper_icon']) ? $assets->hyperIcon((string) $_GET['hyper_icon']) : null,
+    hyperIcon: ($icon = $strParam('hyper_icon')) !== null ? $assets->hyperIcon($icon) : null,
     hyperOffsetY: $intParam('y_offset'),
+    format: $format,
 );
 
-$png = $renderer->render($input);
+$image = $renderer->render($input);
 
-header('Content-Type: image/png');
-header('Content-Length: ' . strlen($png));
+header('Content-Type: ' . $format->mimeType());
+header('Content-Length: ' . strlen($image));
 header('Cache-Control: public, max-age=300');
-echo $png;
+echo $image;

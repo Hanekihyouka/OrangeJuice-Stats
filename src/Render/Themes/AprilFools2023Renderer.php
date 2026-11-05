@@ -82,7 +82,7 @@ final class AprilFools2023Renderer extends BaseRenderer
         }
         self::gdCopy($im, self::gdLoad($this->assets->theme('april-fools-2023', 'END.png')), 0, self::HEADER_HEIGHT + count($rows) * self::ROW_HEIGHT);
 
-        return self::gdPng($im);
+        return self::gdEncode($im, $input->format);
     }
 
     /** Text with a random size (±8) and angle (±20°). */

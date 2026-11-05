@@ -29,6 +29,8 @@ final class RenderInput
         public readonly ?string $hyperIcon = null,
         /** Hyper icon crop offset override. */
         public readonly ?int $hyperOffsetY = null,
+        /** Encoding of the returned image. */
+        public readonly ImageFormat $format = ImageFormat::Webp,
     ) {
     }
 
