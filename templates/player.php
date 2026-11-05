@@ -5,6 +5,8 @@
  * @var \OJStats\Stats\PlayerStats $stats
  * @var \OJStats\Game\GameData $game
  * @var list<int> $renderIds
+ * @var int $fetchedAt unix time of the Steam query
+ * @var int $cacheTtl seconds the data is cached, 0 = not cached
  */
 
 use OJStats\Game\CoopRole;
@@ -27,6 +29,10 @@ $renderUrl = $this->absoluteUrl('render.php', ['steamid' => (string) $profile->s
         </div>
         <div class="player-info">
             <h2><?= $this->e($profile->name) ?> 的统计数据</h2>
+            <p class="text-muted small player-updated">
+                数据更新于 <?= gmdate('Y-m-d H:i', $fetchedAt) ?> UTC
+                <?php if ($cacheTtl > 0): ?>（同一玩家的数据最多每 <?= $this->e($this->duration($cacheTtl)) ?>从 Steam 刷新一次）<?php endif ?>
+            </p>
             <table class="player-summary">
                 <?php foreach ($summary as [$label1, $value1, $label2, $value2]): ?>
                     <tr>

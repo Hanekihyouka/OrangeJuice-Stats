@@ -24,7 +24,7 @@
 | 入口 | 说明 |
 | --- | --- |
 | `global.php` | 全球统计：每个角色的总场数、胜场、胜率。可选择日期范围（UTC），不选则显示全部时间。 |
-| `player.php` | 个人统计：等级、合作职业、角色、卡牌、赏金等数据。每次都实时查询，不缓存。 |
+| `player.php` | 个人统计：等级、合作职业、角色、卡牌、赏金等数据。 |
 | `render.php` | 图像 API：把个人统计渲染成 PNG 图片。 |
 
 ### 全球数据缓存
@@ -38,6 +38,12 @@ Steam 的全球统计按 UTC 日存储。除了最近两天（昨天和今天）
 php bin/warm-cache.php                         # 全部历史
 php bin/warm-cache.php 2026-01-01 2026-06-30   # 指定范围
 ```
+
+### 个人数据缓存
+`player.php` 和 `render.php` 共用一份按玩家划分的文件缓存：每个玩家一个 JSON 文本文件
+（默认 `var/players/<steamid>.json`），里面记录了这次查询的时间戳以及 Steam 返回的数据。
+在 `player_cache_ttl`（默认 3600 秒）以内再次查询同一玩家时直接使用缓存，超过之后才重新请求 Steam。
+查询失败（例如隐私设置未公开）不会被缓存。
 
 ### 图像 API
 `render.php?steamid=<steamid>[&render=<0-8>][&limit=<行数>][&nick=<昵称>][&sp1=<徽章>]`
@@ -68,6 +74,8 @@ php bin/warm-cache.php 2026-01-01 2026-06-30   # 指定范围
 | `database` | `OJ_DATABASE` | SQLite 数据库路径，默认 `var/global-stats.sqlite` |
 | `earliest_date` | `OJ_EARLIEST_DATE` | Steam 全球历史数据的第一天，默认 `2014-05-31` |
 | `http_timeout` | `OJ_HTTP_TIMEOUT` | 单个 Steam API 请求的超时秒数，默认 15 |
+| `player_cache_ttl` | `OJ_PLAYER_CACHE_TTL` | 个人数据缓存的有效秒数，默认 3600；0 表示不缓存 |
+| `player_cache_dir` | `OJ_PLAYER_CACHE_DIR` | 个人数据缓存文件的目录，默认 `var/players` |
 
 `var/` 目录需要对 PHP 进程可写。
 
@@ -98,7 +106,7 @@ templates/   页面模板
 data/        角色、卡牌、赏金 NPC、统计项说明等数据表
 resources/   渲染用的字体和各样式的素材
 bin/         命令行工具
-var/         运行时数据（SQLite 数据库）
+var/         运行时数据（SQLite 数据库、个人数据缓存）
 ```
 
 新增角色时，在 `data/characters.php` 加一行，并把图片放进 `public/images/` 对应的目录即可。

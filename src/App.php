@@ -11,6 +11,7 @@ use OJStats\Render\RendererRegistry;
 use OJStats\Stats\DateRange;
 use OJStats\Stats\GlobalStatsCache;
 use OJStats\Stats\GlobalStatsService;
+use OJStats\Stats\PlayerCache;
 use OJStats\Stats\PlayerService;
 use OJStats\Steam\SteamApi;
 
@@ -51,7 +52,12 @@ final class App
 
     public function players(): PlayerService
     {
-        return $this->service(PlayerService::class, fn () => new PlayerService($this->steam(), $this->game()));
+        return $this->service(PlayerService::class, fn () => new PlayerService(
+            $this->steam(),
+            $this->game(),
+            new PlayerCache($this->config->playerCacheDir),
+            $this->config->playerCacheTtl,
+        ));
     }
 
     public function globalStats(): GlobalStatsService

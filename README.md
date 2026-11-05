@@ -24,7 +24,7 @@ and deployed it on 100oj.com in early 2021 as part of the many Orange Juice tool
 | Entry | Description |
 | --- | --- |
 | `global.php` | Global stats: games, wins and win rate of every character, for all time or a range of (UTC) days. |
-| `player.php` | Player stats: level, co-op roles, characters, cards, bounties... Always live, never cached. |
+| `player.php` | Player stats: level, co-op roles, characters, cards, bounties... |
 | `render.php` | Image API: a player's stats rendered as PNG. |
 
 ### Global stats cache
@@ -39,6 +39,12 @@ The whole history can be cached ahead of time (cached days are skipped, so it is
 php bin/warm-cache.php                         # whole history
 php bin/warm-cache.php 2026-01-01 2026-06-30   # a range
 ```
+
+### Player data cache
+`player.php` and `render.php` share a per-player file cache: one JSON text file per player
+(`var/players/<steamid>.json` by default) holding the time of the query and Steam's data.
+Within `player_cache_ttl` (3600 seconds by default) the cached data is used; after that Steam is
+queried again. Failed queries (e.g. private profiles) are not cached.
 
 ### Image API
 `render.php?steamid=<steamid>[&render=<0-8>][&limit=<rows>][&nick=<name>][&sp1=<pin>]`
@@ -69,6 +75,8 @@ Copy `config.example.php` to `config.php`, or use environment variables (they ta
 | `database` | `OJ_DATABASE` | SQLite database path, default `var/global-stats.sqlite` |
 | `earliest_date` | `OJ_EARLIEST_DATE` | First day of global history on Steam, default `2014-05-31` |
 | `http_timeout` | `OJ_HTTP_TIMEOUT` | Timeout in seconds of one Steam API request, default 15 |
+| `player_cache_ttl` | `OJ_PLAYER_CACHE_TTL` | Seconds a player's data is cached, default 3600; 0 disables the cache |
+| `player_cache_dir` | `OJ_PLAYER_CACHE_DIR` | Directory of the player cache files, default `var/players` |
 
 `var/` must be writable by PHP.
 
@@ -99,7 +107,7 @@ templates/   page templates
 data/        characters, cards, bounty NPCs, stat descriptions
 resources/   fonts and artwork used by the renders
 bin/         command line tools
-var/         runtime data (SQLite database)
+var/         runtime data (SQLite database, player cache)
 ```
 
 To add a character, add a line to `data/characters.php` and put its images in `public/images/`.

@@ -73,6 +73,16 @@ final class View
         return number_format($value);
     }
 
+    /** Human readable duration, e.g. "1 小时", "30 分钟", "90 秒". */
+    public function duration(int $seconds): string
+    {
+        return match (true) {
+            $seconds % 3600 === 0 => ($seconds / 3600) . ' 小时',
+            $seconds % 60 === 0 => ($seconds / 60) . ' 分钟',
+            default => $seconds . ' 秒',
+        };
+    }
+
     public function percent(float $ratio, int $decimals = 2): string
     {
         return number_format(100 * $ratio, $decimals);

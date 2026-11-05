@@ -10,13 +10,19 @@ use OJStats\Steam\SteamApiException;
 use OJStats\Steam\SteamId;
 
 /**
- * Loads a single player's stats. Never cached: they change after every game.
+ * Loads a single player's profile and stats.
+ *
+ * Successful Steam answers are kept in a per-player file cache for $cacheTtl seconds,
+ * shared by the player page and the image API. Failures are never cached.
  */
 final class PlayerService
 {
     public function __construct(
         private readonly SteamApi $steam,
         private readonly GameData $game,
+        private readonly PlayerCache $cache,
+        /** Seconds cached data stays valid, 0 = always ask Steam. */
+        private readonly int $cacheTtl,
     ) {
     }
 
@@ -24,19 +30,39 @@ final class PlayerService
      * @throws \OJStats\Steam\PrivateStatsException when the player's game details are not public
      * @throws SteamApiException on any other Steam API problem
      */
-    public function stats(SteamId $steamId): PlayerStats
+    public function get(SteamId $steamId): Player
     {
-        return PlayerStats::fromRaw($this->steam->playerStats($steamId), $this->game);
-    }
-
-    /** @throws SteamApiException */
-    public function profile(SteamId $steamId): PlayerProfile
-    {
-        $summary = $this->steam->playerSummary($steamId);
-        if ($summary === null) {
-            throw new SteamApiException("Steam account $steamId does not exist");
+        if ($this->cacheTtl > 0 && $entry = $this->cache->get($steamId, $this->cacheTtl)) {
+            return $this->build($steamId, $entry['stats'], $entry['summary'], $entry['fetched_at'], true);
         }
 
-        return PlayerProfile::fromSummary($steamId, $summary);
+        $fetchedAt = time();
+        $stats = $this->steam->playerStats($steamId);
+        $summary = $this->steam->playerSummary($steamId)
+            ?? throw new SteamApiException("Steam account $steamId does not exist");
+
+        if ($this->cacheTtl > 0) {
+            try {
+                $this->cache->put($steamId, $fetchedAt, $stats, $summary);
+            } catch (\Throwable $e) {
+                error_log('OrangeJuice-Stats: ' . $e->getMessage()); // still serve the fresh data
+            }
+        }
+
+        return $this->build($steamId, $stats, $summary, $fetchedAt, false);
+    }
+
+    /**
+     * @param array<string, int> $stats
+     * @param array<string, mixed> $summary
+     */
+    private function build(SteamId $steamId, array $stats, array $summary, int $fetchedAt, bool $fromCache): Player
+    {
+        return new Player(
+            PlayerProfile::fromSummary($steamId, $summary),
+            PlayerStats::fromRaw($stats, $this->game),
+            $fetchedAt,
+            $fromCache,
+        );
     }
 }

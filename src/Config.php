@@ -21,6 +21,8 @@ final class Config
         'database' => 'OJ_DATABASE',
         'earliest_date' => 'OJ_EARLIEST_DATE',
         'http_timeout' => 'OJ_HTTP_TIMEOUT',
+        'player_cache_ttl' => 'OJ_PLAYER_CACHE_TTL',
+        'player_cache_dir' => 'OJ_PLAYER_CACHE_DIR',
     ];
 
     private function __construct(
@@ -34,6 +36,10 @@ final class Config
         public readonly string $earliestDate,
         /** Timeout in seconds for a single Steam API request. */
         public readonly int $httpTimeout,
+        /** Seconds a player's cached data is reused before Steam is asked again. 0 = no cache. */
+        public readonly int $playerCacheTtl,
+        /** Directory of the per-player cache files. */
+        public readonly string $playerCacheDir,
     ) {
     }
 
@@ -45,6 +51,8 @@ final class Config
             'database' => $root . '/var/global-stats.sqlite',
             'earliest_date' => '2014-05-31',
             'http_timeout' => 15,
+            'player_cache_ttl' => 3600,
+            'player_cache_dir' => $root . '/var/players',
         ];
 
         $file = $root . '/config.php';
@@ -69,6 +77,8 @@ final class Config
             databasePath: (string) $values['database'],
             earliestDate: (string) $values['earliest_date'],
             httpTimeout: max(1, (int) $values['http_timeout']),
+            playerCacheTtl: max(0, (int) $values['player_cache_ttl']),
+            playerCacheDir: rtrim((string) $values['player_cache_dir'], '/'),
         );
     }
 }

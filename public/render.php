@@ -45,8 +45,7 @@ $renderer = ($renderId !== null ? $renderers->get($renderId) : null)
     ?? $fail(400, 'Unknown render, valid values: ' . implode(', ', $renderers->ids()) . '.');
 
 try {
-    $stats = $app->players()->stats($steamId);
-    $profile = $app->players()->profile($steamId);
+    $player = $app->players()->get($steamId);
 } catch (PrivateStatsException) {
     $fail(404, "The game details of $steamId are not public.");
 } catch (SteamApiException $e) {
@@ -58,9 +57,9 @@ $nick = trim((string) ($_GET['nick'] ?? ''));
 $pinId = max(0, $intParam('sp1') ?? 0);
 
 $input = new RenderInput(
-    profile: $profile,
-    stats: $stats,
-    avatar: ($profile->avatarUrl !== '' ? $app->steam()->download($profile->avatarUrl) : null)
+    profile: $player->profile,
+    stats: $player->stats,
+    avatar: ($player->profile->avatarUrl !== '' ? $app->steam()->download($player->profile->avatarUrl) : null)
         ?? (string) file_get_contents($assets->fallbackAvatar()),
     limit: $intParam('limit'),
     nick: $nick !== '' ? mb_substr($nick, 0, 64) : null,

@@ -113,6 +113,10 @@ main {
     margin-top: 0;
 }
 
+.player-updated {
+    margin: -5px 0 10px;
+}
+
 .player-summary {
     width: 100%;
 }

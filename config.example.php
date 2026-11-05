@@ -21,4 +21,11 @@ return [
 
     // Timeout in seconds of one Steam API request.                      (OJ_HTTP_TIMEOUT)
     // 'http_timeout' => 15,
+
+    // Seconds a player's data is reused before Steam is queried again;  (OJ_PLAYER_CACHE_TTL)
+    // shared by player.php and render.php. 0 disables the cache.
+    // 'player_cache_ttl' => 3600,
+
+    // Directory of the per-player cache files (one JSON file per player). (OJ_PLAYER_CACHE_DIR)
+    // 'player_cache_dir' => __DIR__ . '/var/players',
 ];

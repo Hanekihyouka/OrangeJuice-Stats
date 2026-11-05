@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * Stats of a single player. Always live, never cached.
+ * Stats of a single player, cached per player for player_cache_ttl seconds.
  *
  * Query: ?steamid=<SteamID64 or profile URL>
  */
@@ -22,8 +22,9 @@ $errors = [];
 
 if ($steamId !== null) {
     try {
-        $stats = $app->players()->stats($steamId);
-        $profile = $app->players()->profile($steamId);
+        $player = $app->players()->get($steamId);
+        $stats = $player->stats;
+        $profile = $player->profile;
 
         echo $view->render('layout', [
             'title' => "{$profile->name} - 百分百鲜橙汁个人统计",
@@ -33,6 +34,8 @@ if ($steamId !== null) {
                 'profile' => $profile,
                 'stats' => $stats,
                 'game' => $app->game(),
+                'fetchedAt' => $player->fetchedAt,
+                'cacheTtl' => $app->config->playerCacheTtl,
                 'renderIds' => $app->renderers()->ids(),
             ]),
         ]);
