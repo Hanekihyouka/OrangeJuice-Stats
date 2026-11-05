@@ -1,0 +1,229 @@
+/* ---------- page ---------- */
+
+html, body {
+    min-height: 100%;
+    background: #ffdebc url("../images/background.png") repeat;
+}
+
+body.level-300 {
+    background-image: url("../images/background2.png");
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.box {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+}
+
+@media (min-width: 1000px) {
+    main { padding: 20px 0; }
+    .box { width: 75%; padding: 20px; border-radius: 25px; }
+}
+
+/* ---------- tables ---------- */
+
+.stat-table td,
+.stat-table th {
+    vertical-align: middle !important;
+}
+
+.stat-table td {
+    padding: 0 8px !important;
+}
+
+.stat-table .col-icon {
+    width: 64px;
+}
+
+.stat-icon {
+    width: 32px;
+}
+
+@media (min-width: 700px) {
+    .stat-icon { width: 48px; }
+}
+
+@media (min-width: 1000px) {
+    .stat-icon { width: 56px; }
+}
+
+/* ---------- global page ---------- */
+
+.global-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.global-toolbar label {
+    margin: 0;
+}
+
+.global-toolbar .js-daterange {
+    width: 230px;
+    cursor: pointer;
+    background: #fff;
+    text-align: center;
+}
+
+/* ---------- player page ---------- */
+
+.player-header {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.player-avatar {
+    display: none;
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.player-avatar > img {
+    display: block;
+    width: 184px;
+    height: 184px;
+    margin-bottom: 20px;
+}
+
+.player-logo img {
+    width: 184px;
+}
+
+@media (min-width: 1000px) {
+    .player-avatar { display: block; }
+}
+
+.player-info {
+    flex: 1 1 auto;
+}
+
+.player-info h2 {
+    margin-top: 0;
+}
+
+.player-summary {
+    width: 100%;
+}
+
+.player-summary th,
+.player-summary td {
+    width: 25%;
+    height: 44px;
+    padding: 0 6px;
+    font-size: 15px;
+}
+
+.player-summary th {
+    font-weight: normal;
+    color: #555;
+    white-space: nowrap;
+}
+
+.role-icon {
+    width: 32px;
+}
+
+.tab-content {
+    padding-top: 15px;
+}
+
+.render-previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- player search ---------- */
+
+.search-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .6);
+}
+
+.search-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 50px;
+    color: #fff;
+    background: rgba(0, 0, 0, .85);
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+}
+
+.search-box h2 {
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input input {
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 1px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+}
+
+.search-input label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: normal;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.search-input input:focus ~ label,
+.search-input input:valid ~ label {
+    top: -18px;
+    font-size: 14px;
+    color: #03a9f4;
+}
+
+.search-box button {
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #fff;
+    background: #03a9f4;
+    border: none;
+    border-radius: 10px;
+}
+
+.search-error {
+    margin-top: 20px;
+    color: #ff6b6b;
+}
+
+.search-hint {
+    margin: 20px 0 0;
+}
+
+.search-hint a {
+    color: #ccc;
+}
