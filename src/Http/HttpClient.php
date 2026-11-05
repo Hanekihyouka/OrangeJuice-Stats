@@ -77,7 +77,8 @@ final class HttpClient
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_MAXREDIRS => 3,
-            CURLOPT_CONNECTTIMEOUT => min(5, $this->timeout),
+            // Connecting (DNS + TCP + TLS) is part of the total, so one setting covers both.
+            CURLOPT_CONNECTTIMEOUT => $this->timeout,
             CURLOPT_TIMEOUT => $this->timeout,
             CURLOPT_USERAGENT => self::USER_AGENT,
             CURLOPT_ENCODING => '',
@@ -94,7 +95,21 @@ final class HttpClient
             url: $url,
             status: (int) curl_getinfo($handle, CURLINFO_RESPONSE_CODE),
             body: is_string($body) ? $body : '',
-            error: $curlCode === CURLE_OK ? null : curl_strerror($curlCode),
+            error: $curlCode === CURLE_OK ? null : $this->describeError($handle, $curlCode),
+        );
+    }
+
+    /** e.g. "Resolving timed out after 15000 milliseconds (dns 15.00s, connect 0.00s, ip -)" */
+    private function describeError(\CurlHandle $handle, int $curlCode): string
+    {
+        $message = curl_error($handle) ?: curl_strerror($curlCode);
+
+        return sprintf(
+            '%s (dns %.2fs, connect %.2fs, ip %s)',
+            $message,
+            curl_getinfo($handle, CURLINFO_NAMELOOKUP_TIME),
+            curl_getinfo($handle, CURLINFO_CONNECT_TIME),
+            curl_getinfo($handle, CURLINFO_PRIMARY_IP) ?: '-',
         );
     }
 }
