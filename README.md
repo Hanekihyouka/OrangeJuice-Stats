@@ -94,9 +94,6 @@ php -S 127.0.0.1:8000 -t public
 
 For production see the `Caddyfile` next to this project (Caddy + php-fpm).
 
-## Or use docker
-see [OrangeJuice-Stats-Docker](https://github.com/Hanekihyouka/OrangeJuice-Stats-Docker) (note: the web root is now `public/`).
-
 # Layout
 
 ```

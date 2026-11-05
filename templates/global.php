@@ -21,6 +21,8 @@ $range = $stats?->range;
         <?php if ($range): ?>
             <a href="<?= $this->e($this->url('global.php')) ?>">查看全部</a>
         <?php endif ?>
+        <a target="_blank" href="<?= $this->e($this->url('player.php')) ?>"> | 🔗 个人统计页面</a>
+        <a target="_blank" href="https://github.com/Hanekihyouka/OrangeJuice-Stats"> | 🔗 GitHub 页面</a>
     </div>
 
     <?php if ($error !== null): ?>

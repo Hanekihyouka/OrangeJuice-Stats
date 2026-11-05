@@ -24,7 +24,8 @@
             </div>
         <?php endif ?>
         <p class="search-hint">
-            <a href="<?= $this->e($this->url('global.php')) ?>">查看全球统计</a>
+            <a target="_blank" href="<?= $this->e($this->url('global.php')) ?>">🌏 全球统计页面</a>
+            <a target="_blank" href="https://github.com/Hanekihyouka/OrangeJuice-Stats"> | 🔗 GitHub 页面</a>
         </p>
     </form>
 </div>

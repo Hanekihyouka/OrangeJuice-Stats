@@ -1,0 +1,41 @@
+# Caddy configuration for OrangeJuice-Stats (Caddy v2 + php-fpm).
+#
+# Everything deployment specific comes from environment variables:
+#   OJ_DOMAIN         site address, e.g. stats.example.com   (default: localhost)
+#   OJ_ROOT           checkout of OrangeJuice-Stats         (default: /srv/OrangeJuice-Stats)
+#   OJ_PHP_FPM        php-fpm address                       (default: unix//run/php-fpm/php-fpm.sock)
+#   OJ_STEAM_API_KEY  Steam Web API key, passed on to PHP
+#   OJ_BASE_URL       public base URL, passed on to PHP      (optional, e.g. https://stats.example.com)
+#
+#   OJ_DOMAIN=stats.example.com OJ_STEAM_API_KEY=... caddy run --config Caddyfile
+#
+# Only public/ is served; config.php, src/ and the SQLite database in var/ stay private.
+# var/ must be writable by the php-fpm user.
+
+{$OJ_DOMAIN:localhost} {
+	root * {$OJ_ROOT:/srv/OrangeJuice-Stats}/public
+
+	encode zstd gzip
+
+	# The old deployment lived below /stat/ (e.g. /stat/global.php); keep those links working.
+	@legacy path_regexp legacy ^/stat(/.*)$
+	redir @legacy {re.legacy.1}{?query} 301
+	redir /stat / 301
+
+	# Static assets rarely change.
+	@assets path /css/* /js/* /images/*
+	header @assets Cache-Control "public, max-age=604800"
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	php_fastcgi {$OJ_PHP_FPM:unix//run/php-fpm/php-fpm.sock} {
+		env OJ_STEAM_API_KEY {$OJ_STEAM_API_KEY}
+		env OJ_BASE_URL {$OJ_BASE_URL}
+	}
+
+	file_server
+}

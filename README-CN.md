@@ -93,9 +93,6 @@ php -S 127.0.0.1:8000 -t public
 
 生产环境可以参考与本项目同级目录下的 `Caddyfile`（Caddy + php-fpm）。
 
-## 或者用 Docker
-[OrangeJuice-Stats-Docker](https://github.com/Hanekihyouka/OrangeJuice-Stats-Docker)（注意：Web 根目录已改为 `public/`）。
-
 # 项目结构
 
 ```
